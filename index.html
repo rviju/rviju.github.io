@@ -168,11 +168,11 @@
                 <span class="highlight" id="regimeOutput">New</span> regime.
               </div>
               <div>
-                Tax Outgo as per Old Regime ~<strong>&#8377;</strong
+                Tax Outgo as per Old Regime ~ <strong>&#8377;</strong
                 ><strong id="oldRegimeTax"></strong>
               </div>
               <div>
-                Tax Outgo as per New Regime ~<strong>&#8377;</strong
+                Tax Outgo as per New Regime ~ <strong>&#8377;</strong
                 ><strong id="newRegimeTax"></strong>
               </div>
             </div>
@@ -182,7 +182,7 @@
                 <span class="highlight">same in old and new regime</span>.
               </div>
               <div>
-                Tax Outgo will be ~<strong>&#8377;</strong
+                Tax Outgo will be ~ <strong>&#8377;</strong
                 ><strong id="sameTax"></strong>
               </div>
             </div>
@@ -453,8 +453,8 @@
             newOrOld.addClass("d-none");
             same.addClass("d-none");
             consultCa.addClass("d-none");
-            $("#annualIncomeOutput").text(input.income);
-            $("#annualDeductionOutput").text(input.deductions);
+            $("#annualIncomeOutput").text(Math.round(input.income).toLocaleString('en-IN'));
+            $("#annualDeductionOutput").text(Math.round(input.deductions).toLocaleString('en-IN'));
             if (ageInput === "1") {
               $("#ageOutput").text("Less than 60 years");
             } else if (ageInput === "2") {
@@ -466,13 +466,13 @@
             if (taxUnderNewRegime >= 5000000 || taxUnderOldRegime >= 5000000) {
               consultCa.removeClass("d-none");
             } else if (taxSaved !== 0) {
-              $("#amountOutput").text(Math.abs(taxSaved));
+              $("#amountOutput").text(Math.abs(taxSaved).toLocaleString('en-IN'));
               $("#regimeOutput").text(whichRegime);
-              $("#oldRegimeTax").text(Math.round(taxUnderOldRegime));
-              $("#newRegimeTax").text(Math.round(taxUnderNewRegime));
+              $("#oldRegimeTax").text(Math.round(taxUnderOldRegime).toLocaleString('en-IN'));
+              $("#newRegimeTax").text(Math.round(taxUnderNewRegime).toLocaleString('en-IN'));
               newOrOld.removeClass("d-none");
             } else {
-              $("#sameRegimeTax").text(Math.round(taxUnderNewRegime));
+              $("#sameRegimeTax").text(Math.round(taxUnderNewRegime).toLocaleString('en-IN'));
               same.removeClass("d-none");
             }
 
