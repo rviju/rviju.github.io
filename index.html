@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>
       Pick your IT Regime for FY 2020-2021. Calculate which IT Regime is best
-      for your income and deductions
+      suitable for you
     </title>
     <meta
       name="viewport"
@@ -27,6 +27,29 @@
       crossorigin="anonymous"
     />
 
+    <!--  Essential META Tags -->
+
+    <meta property="og:title" content="Choose the best suited Income tax Regime for FY 2020-2021." />
+    <meta
+      property="og:description"
+      content="Calculate which IT Regime for FY2020-2021 is best
+      suitable for you"
+    />
+    <meta
+      property="og:image"
+      content="scale-question-importance-balance.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://rviju.github.io"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--  Non-Essential, But Recommended -->
+
+    <meta property="og:site_name" content="RV Notes" />
+    <meta name="twitter:image:alt" content="Choose which is good" />
+
     <meta name="msapplication-config" content="browserconfig.xml" />
     <meta name="theme-color" content="#fafafa" />
 
@@ -40,7 +63,7 @@
       }
       .disclaimer {
         line-height: 1;
-        margin-top:30px;
+        margin-top: 30px;
         text-align: justify;
       }
     </style>
@@ -57,7 +80,9 @@
 
     <!-- Add your site or application content here -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="/" id="home">IT Regime For FY 2020-2021 - Helper</a>
+      <a class="navbar-brand" href="/" id="home"
+        >IT Regime For FY 2020-2021 - Helper</a
+      >
     </nav>
 
     <main role="main" class="container">
@@ -146,7 +171,7 @@
           </div>
         </form>
       </div>
-      <div id="output" class="d-none">  
+      <div id="output" class="d-none">
         <div class="card">
           <div class="card-body">
             <div>
@@ -172,7 +197,7 @@
                 as tax outgo by choosing
                 <span class="highlight" id="regimeOutput">New</span> regime.
               </div>
-              <hr>
+              <hr />
               <div>
                 Tax Outgo as per Old Regime ~ <strong>&#8377;</strong
                 ><strong id="oldRegimeTax"></strong>
@@ -196,9 +221,16 @@
               You come under super rich.
               <span class="highlight">Consult a CA.</span>
             </div>
-            <hr>
+            <hr />
             <div id="img-link-holder">
-              <a target="_blank" class="btn btn-info btn-lg btn-block" href="#" id="img-link">See Which regime is better for various values for the selected age</a>
+              <a
+                target="_blank"
+                class="btn btn-info btn-lg btn-block"
+                href="#"
+                id="img-link"
+                >See Which regime is better for various values for the selected
+                age</a
+              >
             </div>
           </div>
         </div>
@@ -210,8 +242,8 @@
       </div>
       <div class="small disclaimer">
         DISCLAIMER: The owners/authors/publishers do not assume any
-        responsibility for actions or non-actions taken by people who have
-        read the content and no one shall be entitled to claim for detrimental
+        responsibility for actions or non-actions taken by people who have read
+        the content and no one shall be entitled to claim for detrimental
         reliance based upon any information provided or expressed herein. Your
         use of any information provided herein does not constitute any type of
         contractual relationship between yourself and the providers of this
@@ -379,8 +411,9 @@
             taxAfterAgeConsideration = Math.max(0, tax - 12500);
           }
 
-          var taxWithCess = taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
-          
+          var taxWithCess =
+            taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
+
           return taxWithCess;
         }
 
@@ -465,29 +498,41 @@
             newOrOld.addClass("d-none");
             same.addClass("d-none");
             consultCa.addClass("d-none");
-            $("#annualIncomeOutput").text(Math.round(input.income).toLocaleString('en-IN'));
-            $("#annualDeductionOutput").text(Math.round(input.deductions).toLocaleString('en-IN'));
+            $("#annualIncomeOutput").text(
+              Math.round(input.income).toLocaleString("en-IN")
+            );
+            $("#annualDeductionOutput").text(
+              Math.round(input.deductions).toLocaleString("en-IN")
+            );
             if (ageInput === "1") {
               $("#ageOutput").text("Less than 60 years");
-              $("#img-link").attr("href","Below60Years.png");
+              $("#img-link").attr("href", "Below60Years.png");
             } else if (ageInput === "2") {
               $("#ageOutput").text("60 to 80 years");
-              $("#img-link").attr("href","60To80Years.png");
+              $("#img-link").attr("href", "60To80Years.png");
             } else {
               $("#ageOutput").text("Above 80 years");
-              $("#img-link").attr("href","Above80Years.png");
+              $("#img-link").attr("href", "Above80Years.png");
             }
 
             if (taxUnderNewRegime >= 5000000 || taxUnderOldRegime >= 5000000) {
               consultCa.removeClass("d-none");
             } else if (taxSaved !== 0) {
-              $("#amountOutput").text(Math.round(Math.abs(taxSaved)).toLocaleString('en-IN'));
+              $("#amountOutput").text(
+                Math.round(Math.abs(taxSaved)).toLocaleString("en-IN")
+              );
               $("#regimeOutput").text(whichRegime);
-              $("#oldRegimeTax").text(Math.round(taxUnderOldRegime).toLocaleString('en-IN'));
-              $("#newRegimeTax").text(Math.round(taxUnderNewRegime).toLocaleString('en-IN'));
+              $("#oldRegimeTax").text(
+                Math.round(taxUnderOldRegime).toLocaleString("en-IN")
+              );
+              $("#newRegimeTax").text(
+                Math.round(taxUnderNewRegime).toLocaleString("en-IN")
+              );
               newOrOld.removeClass("d-none");
             } else {
-              $("#sameRegimeTax").text(Math.round(taxUnderNewRegime).toLocaleString('en-IN'));
+              $("#sameRegimeTax").text(
+                Math.round(taxUnderNewRegime).toLocaleString("en-IN")
+              );
               same.removeClass("d-none");
             }
 
