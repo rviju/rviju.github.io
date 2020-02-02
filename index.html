@@ -362,14 +362,16 @@
           } else {
             tax = 0;
           }
-          var taxWithCess = tax + tax * fourPercent;
-          var taxAfterAgeConsideration = taxWithCess;
+          var taxAfterAgeConsideration = tax;
           if (age === "2") {
-            taxAfterAgeConsideration = Math.max(0, taxWithCess - 2500);
+            taxAfterAgeConsideration = Math.max(0, tax - 2500);
           } else if (age === "3") {
-            taxAfterAgeConsideration = Math.max(0, taxWithCess - 12500);
+            taxAfterAgeConsideration = Math.max(0, tax - 12500);
           }
-          return taxAfterAgeConsideration;
+
+          var taxWithCess = taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
+          
+          return taxWithCess;
         }
 
         function calculateTaxUnderNewRegime(income) {
