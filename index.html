@@ -49,7 +49,7 @@
         your experience and security.
       </p>
     <![endif]-->
-   
+
     <!-- Add your site or application content here -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">IT Regime For FY 2020-2021 - Helper</a>
@@ -57,7 +57,9 @@
 
     <main role="main" class="container">
       <noscript>
-        This site requires Java Script to work. Please enable your Javascript. You may follow the steps mentioned at <a href="https://enablejavascript.co/">Here</a>
+        This site requires Java Script to work. Please enable your Javascript.
+        You may follow the steps mentioned at
+        <a href="https://enablejavascript.co/">Here</a>
       </noscript>
       <div id="input-form" class="d-none">
         <form novalidate class="needs-validation">
@@ -80,15 +82,12 @@
                 Please enter a valid number.
               </div>
             </div>
-            
+
             <small id="annualIncomeHelp" class="form-text text-muted"
               >Include interest income, rental income, salaried & pension as
               applicable</small
             >
-            <small id="annualIncomeText" class="form-text"
-              ></small
-            >
-            
+            <small id="annualIncomeText" class="form-text"></small>
           </div>
           <div class="form-group">
             <label for="annualDeductions">Annual Deductions</label>
@@ -113,9 +112,7 @@
               >Include 80c, medicalim, hra, loss on home prop, LTA, Interest
               exemption as applicable for old regime computation</small
             >
-            <small id="annualDeductionText" class="form-text"
-              ></small
-            >
+            <small id="annualDeductionText" class="form-text"></small>
           </div>
           <div class="form-group">
             <label for="annualDeductions">Age</label>
@@ -138,10 +135,10 @@
             </button>
           </div>
           <div class="text-center">
-          <small >
-            Prepared by R Vijayaraghavan
-          </small>
-        </div>
+            <small>
+              Prepared by R Vijayaraghavan
+            </small>
+          </div>
         </form>
       </div>
       <div id="output" class="d-none">
@@ -163,15 +160,31 @@
             </div>
             <hr />
             <div id="new-or-old">
-              You can save approximately
-              <span class="highlight">&#8377;</span>
-              <span class="highlight" id="amountOutput"></span>
-              as tax outgo by choosing
-              <span class="highlight" id="regimeOutput">New</span> regime.
+              <div>
+                You can save approximately
+                <span class="highlight">&#8377;</span>
+                <span class="highlight" id="amountOutput"></span>
+                as tax outgo by choosing
+                <span class="highlight" id="regimeOutput">New</span> regime.
+              </div>
+              <div>
+                Tax Outgo as per Old Regime ~<strong>&#8377;</strong
+                ><strong id="oldRegimeTax"></strong>
+              </div>
+              <div>
+                Tax Outgo as per New Regime ~<strong>&#8377;</strong
+                ><strong id="newRegimeTax"></strong>
+              </div>
             </div>
             <div id="same">
-              Your tax outgo is
-              <span class="highlight">same in old and new regime</span>.
+              <div>
+                Your tax outgo is
+                <span class="highlight">same in old and new regime</span>.
+              </div>
+              <div>
+                Tax Outgo will be ~<strong>&#8377;</strong
+                ><strong id="sameTax"></strong>
+              </div>
             </div>
             <div id="consult-ca">
               You come under super rich.
@@ -185,7 +198,15 @@
           </button>
         </div>
         <small>
-          DISCLAIMER: The owners/authors/publishers do not assume any responsibility for actions or non-actions taken by people who have read the content and no one shall be entitled to claim for detrimental reliance based upon any information provided or expressed herein. Your use of any information provided herein does not constitute any type of contractual relationship between yourself and the providers of this information. The owners/authors/publishers hereby disclaim all responsibility and liability for all use of any information in this material. 
+          DISCLAIMER: The owners/authors/publishers do not assume any
+          responsibility for actions or non-actions taken by people who have
+          read the content and no one shall be entitled to claim for detrimental
+          reliance based upon any information provided or expressed herein. Your
+          use of any information provided herein does not constitute any type of
+          contractual relationship between yourself and the providers of this
+          information. The owners/authors/publishers hereby disclaim all
+          responsibility and liability for all use of any information in this
+          material.
         </small>
       </div>
     </main>
@@ -447,8 +468,11 @@
             } else if (taxSaved !== 0) {
               $("#amountOutput").text(Math.abs(taxSaved));
               $("#regimeOutput").text(whichRegime);
+              $("#oldRegimeTax").text(Math.round(taxUnderOldRegime));
+              $("#newRegimeTax").text(Math.round(taxUnderNewRegime));
               newOrOld.removeClass("d-none");
             } else {
+              $("#sameRegimeTax").text(Math.round(taxUnderNewRegime));
               same.removeClass("d-none");
             }
 
@@ -460,12 +484,12 @@
           outputForm.addClass("d-none");
           inputForm.removeClass("d-none");
         });
-        annualIncomeInput.on("input", function(){
+        annualIncomeInput.on("input", function() {
           var value = Math.round($(this).val());
           var text = price_in_words(value);
           $("#annualIncomeText").text(text);
         });
-        annualDeductionInput.on("input", function(){
+        annualDeductionInput.on("input", function() {
           var value = Math.round($(this).val());
           var text = price_in_words(value);
           $("#annualDeductionText").text(text);
@@ -474,15 +498,19 @@
       });
     </script>
 
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157572600-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-157572600-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'UA-157572600-1');
-  </script>
-
+      gtag("config", "UA-157572600-1");
+    </script>
   </body>
 </html>
