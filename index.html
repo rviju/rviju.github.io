@@ -468,7 +468,7 @@
             if (taxUnderNewRegime >= 5000000 || taxUnderOldRegime >= 5000000) {
               consultCa.removeClass("d-none");
             } else if (taxSaved !== 0) {
-              $("#amountOutput").text(Math.abs(taxSaved).toLocaleString('en-IN'));
+              $("#amountOutput").text(Math.round(Math.abs(taxSaved)).toLocaleString('en-IN'));
               $("#regimeOutput").text(whichRegime);
               $("#oldRegimeTax").text(Math.round(taxUnderOldRegime).toLocaleString('en-IN'));
               $("#newRegimeTax").text(Math.round(taxUnderNewRegime).toLocaleString('en-IN'));
