@@ -38,6 +38,11 @@
         font-size: 1.5rem;
         font-weight: 500;
       }
+      .disclaimer {
+        line-height: 1;
+        margin-top:30px;
+        text-align: justify;
+      }
     </style>
   </head>
 
@@ -52,7 +57,7 @@
 
     <!-- Add your site or application content here -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">IT Regime For FY 2020-2021 - Helper</a>
+      <a class="navbar-brand" href="/" id="home">IT Regime For FY 2020-2021 - Helper</a>
     </nav>
 
     <main role="main" class="container">
@@ -141,7 +146,7 @@
           </div>
         </form>
       </div>
-      <div id="output" class="d-none">
+      <div id="output" class="d-none">  
         <div class="card">
           <div class="card-body">
             <div>
@@ -167,6 +172,7 @@
                 as tax outgo by choosing
                 <span class="highlight" id="regimeOutput">New</span> regime.
               </div>
+              <hr>
               <div>
                 Tax Outgo as per Old Regime ~ <strong>&#8377;</strong
                 ><strong id="oldRegimeTax"></strong>
@@ -190,24 +196,28 @@
               You come under super rich.
               <span class="highlight">Consult a CA.</span>
             </div>
+            <hr>
+            <div id="img-link-holder">
+              <a target="_blank" class="btn btn-info btn-lg btn-block" href="#" id="img-link">See Which regime is better for various values for the selected age</a>
+            </div>
           </div>
         </div>
-        <div class="form-group mt-5" style="text-align: center;">
+        <div class="form-group mt-2" style="text-align: center;">
           <button type="button" class="btn btn-primary btn-lg" id="goBack">
             Change My Values
           </button>
         </div>
-        <small>
-          DISCLAIMER: The owners/authors/publishers do not assume any
-          responsibility for actions or non-actions taken by people who have
-          read the content and no one shall be entitled to claim for detrimental
-          reliance based upon any information provided or expressed herein. Your
-          use of any information provided herein does not constitute any type of
-          contractual relationship between yourself and the providers of this
-          information. The owners/authors/publishers hereby disclaim all
-          responsibility and liability for all use of any information in this
-          material.
-        </small>
+      </div>
+      <div class="small disclaimer">
+        DISCLAIMER: The owners/authors/publishers do not assume any
+        responsibility for actions or non-actions taken by people who have
+        read the content and no one shall be entitled to claim for detrimental
+        reliance based upon any information provided or expressed herein. Your
+        use of any information provided herein does not constitute any type of
+        contractual relationship between yourself and the providers of this
+        information. The owners/authors/publishers hereby disclaim all
+        responsibility and liability for all use of any information in this
+        material.
       </div>
     </main>
     <script
@@ -459,10 +469,13 @@
             $("#annualDeductionOutput").text(Math.round(input.deductions).toLocaleString('en-IN'));
             if (ageInput === "1") {
               $("#ageOutput").text("Less than 60 years");
+              $("#img-link").attr("href","Below60Years.png");
             } else if (ageInput === "2") {
               $("#ageOutput").text("60 to 80 years");
+              $("#img-link").attr("href","60To80Years.png");
             } else {
               $("#ageOutput").text("Above 80 years");
+              $("#img-link").attr("href","Above80Years.png");
             }
 
             if (taxUnderNewRegime >= 5000000 || taxUnderOldRegime >= 5000000) {
@@ -482,7 +495,8 @@
             outputForm.removeClass("d-none");
           }
         });
-        $("#goBack").click(function() {
+        $("#goBack, #home").click(function(ev) {
+          ev.preventDefault();
           outputForm.addClass("d-none");
           inputForm.removeClass("d-none");
         });
