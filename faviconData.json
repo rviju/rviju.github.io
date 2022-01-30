@@ -1,0 +1,43 @@
+{
+  "result": { "status": "success" },
+  "favicon": {
+    "package_url": "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/favicon_package_v0.16.zip",
+    "files_urls": [
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/README.md",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/android-chrome-192x192.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/android-chrome-512x512.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/apple-touch-icon.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/browserconfig.xml",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/favicon-16x16.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/favicon-32x32.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/favicon.ico",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/html_code.html",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/mstile-144x144.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/mstile-150x150.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/mstile-310x150.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/mstile-310x310.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/mstile-70x70.png",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/safari-pinned-tab.svg",
+      "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/package_files/site.webmanifest"
+    ],
+    "html_code": "<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/static/favicons/apple-touch-icon.png?v=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/static/favicons/favicon-32x32.png?v=1\">\n<link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/static/favicons/favicon-16x16.png?v=1\">\n<link rel=\"manifest\" href=\"/static/favicons/site.webmanifest?v=1\">\n<link rel=\"mask-icon\" href=\"/static/favicons/safari-pinned-tab.svg?v=1\" color=\"#5bbad5\">\n<link rel=\"shortcut icon\" href=\"/static/favicons/favicon.ico?v=1\">\n<meta name=\"apple-mobile-web-app-title\" content=\"Vijju's\">\n<meta name=\"application-name\" content=\"Vijju's\">\n<meta name=\"msapplication-TileColor\" content=\"#2d89ef\">\n<meta name=\"msapplication-config\" content=\"/static/favicons/browserconfig.xml?v=1\">\n<meta name=\"theme-color\" content=\"#ffffff\">",
+    "compression": "false",
+    "overlapping_markups": [
+      "link[rel=\"apple-touch-icon\"]",
+      "meta[name=\"apple-mobile-web-app-title\"]",
+      "link[rel=\"shortcut\"]",
+      "link[rel=\"shortcut icon\"]",
+      "link[rel=\"icon\",sizes=\"16x16\"]",
+      "link[rel=\"icon\",sizes=\"32x32\"]",
+      "meta[name=\"msapplication-TileColor\"]",
+      "meta[name=\"msapplication-config\"]",
+      "meta[name=\"application-name\"]",
+      "link[rel=\"manifest\"]",
+      "meta[name=\"theme-color\"]",
+      "link[rel=\"mask-icon\"]"
+    ]
+  },
+  "files_location": { "type": "path", "path": "/static/favicons/" },
+  "preview_picture_url": "https://realfavicongenerator.net/files/be32b830ec14dca6e0cdfc8dd5ec42ba86c69c0e/favicon_preview.png",
+  "version": "0.16"
+}
