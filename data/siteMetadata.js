@@ -1,6 +1,6 @@
 const siteMetadata = {
   title: "Vijayaraghavan's Musings",
-  author: 'Vijayaraghavn R',
+  author: 'Vijayaraghavan R',
   headerTitle: "Vijayaraghavan's Musings",
   description:
     'Personal website of Vijayaraghavan R hosting apps, utilities and articles related to banking and personal finance',

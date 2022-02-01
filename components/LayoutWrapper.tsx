@@ -1,12 +1,12 @@
-import siteMetadata from '@/data/siteMetadata';
 import headerNavLinks from '@/data/headerNavLinks';
 import Logo from '@/data/logo.svg';
-import Link from './Link';
-import SectionContainer from './SectionContainer';
-import Footer from './Footer';
-import MobileNav from './MobileNav';
-import ThemeSwitch from './ThemeSwitch';
+import siteMetadata from '@/data/siteMetadata';
 import { ReactNode } from 'react';
+import Footer from './Footer';
+import Link from './Link';
+import MobileNav from './MobileNav';
+import SectionContainer from './SectionContainer';
+import ThemeSwitch from './ThemeSwitch';
 
 interface Props {
   children: ReactNode;
@@ -16,7 +16,7 @@ const LayoutWrapper = ({ children }: Props) => {
   return (
     <SectionContainer>
       <div className="flex flex-col justify-between h-screen">
-        <header className="flex items-center justify-between py-10">
+        <header className="flex items-center justify-between py-5 md:py-10">
           <div>
             <Link href="/" aria-label="Tailwind CSS Blog">
               <div className="flex items-center justify-between">
@@ -49,7 +49,7 @@ const LayoutWrapper = ({ children }: Props) => {
             <MobileNav />
           </div>
         </header>
-        <main className="mb-auto">{children}</main>
+        <main className="mb-auto flex-grow">{children}</main>
         <Footer />
       </div>
     </SectionContainer>

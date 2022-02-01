@@ -13,9 +13,9 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended',
     'next',
     'next/core-web-vitals',
+    'plugin:prettier/recommended',
   ],
   rules: {
     'prettier/prettier': ['error', { singleQuote: true }],
@@ -26,6 +26,15 @@ module.exports = {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
         aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        labelComponents: ['label'],
+        labelAttributes: ['label'],
+        controlComponents: ['input'],
+        depth: 4,
       },
     ],
     'react/prop-types': 0,
