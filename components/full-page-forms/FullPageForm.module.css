@@ -1,0 +1,35 @@
+.full-page-form-container {
+  @apply fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-start;
+}
+
+.full-page-form {
+  @apply relative w-full max-w-3xl xl:max-w-5xl mx-auto h-full;
+}
+
+.frame {
+  @apply absolute transition-transform ease-in-out p-10 w-full left-0;
+}
+
+.action-bar {
+  @apply flex justify-between pt-4;
+}
+
+.action-button {
+  @apply inline px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg shadow focus:outline-none hover:bg-green-700 dark:hover:bg-green-500;
+}
+
+.close-button {
+  @apply w-8 h-8 py-1 mr-4 rounded text-green-700;
+}
+
+.fill-current-color {
+  @apply fill-current;
+}
+
+.close-button-container {
+  @apply py-5 flex flex-row w-full justify-end;
+}
+
+.list-style {
+  @apply list-none;
+}

@@ -23,3 +23,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
 }
+
+.primary-button {
+  @apply inline px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-green-600 border border-transparent rounded-lg shadow focus:outline-none hover:bg-green-700 dark:hover:bg-green-500;
+}

@@ -1,12 +1,11 @@
-import Link from '@/components/Link';
+import Card from '@/components/Card';
+import NewsletterForm from '@/components/NewsletterForm';
 import { PageSEO } from '@/components/SEO';
-import Tag from '@/components/Tag';
+import appsData from '@/data/appsData';
 import siteMetadata from '@/data/siteMetadata';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
-import formatDate from '@/lib/utils/formatDate';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { PostFrontMatter } from 'types/PostFrontMatter';
-import NewsletterForm from '@/components/NewsletterForm';
 
 const MAX_DISPLAY = 5;
 
@@ -23,13 +22,13 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
+            Welcome!
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
           </p>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+        {/* <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
             const { slug, date, title, summary, tags } = frontMatter;
@@ -91,7 +90,21 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
             All Posts &rarr;
           </Link>
         </div>
-      )}
+      )} */}
+        <div className="container">
+          <div className="flex flex-wrap -m-4">
+            {appsData.map((d) => (
+              <Card
+                key={d.title}
+                title={d.title}
+                description={d.description}
+                imgSrc={d.imgSrc}
+                href={d.href}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
       {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
