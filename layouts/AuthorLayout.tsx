@@ -1,6 +1,6 @@
-import SocialIcon from '@/components/social-icons';
 import Image from '@/components/Image';
 import { PageSEO } from '@/components/SEO';
+import SocialIcon from '@/components/social-icons';
 import { ReactNode } from 'react';
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter';
 

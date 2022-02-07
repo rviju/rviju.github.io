@@ -5,6 +5,12 @@ const appsData = [
     imgSrc: '/static/images/it-regime.png',
     href: '/apps/it-regime',
   },
+  {
+    title: 'Dearness Relief Calculator',
+    description: `You can calculate your DR (Dearness Relief) based on the recent slab changes made during Jan 2022 using this dr calculator for pensioners`,
+    imgSrc: '/static/images/dr-calculator.png',
+    href: '/apps/dr-calculator',
+  },
 ];
 
 export default appsData;

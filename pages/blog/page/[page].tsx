@@ -1,10 +1,10 @@
 import { PageSEO } from '@/components/SEO';
 import siteMetadata from '@/data/siteMetadata';
-import { getAllFilesFrontMatter } from '@/lib/mdx';
 import ListLayout from '@/layouts/ListLayout';
-import { POSTS_PER_PAGE } from '../../blog';
+import { getAllFilesFrontMatter } from '@/lib/mdx';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { PostFrontMatter } from 'types/PostFrontMatter';
+import { POSTS_PER_PAGE } from '../../blog';
 
 export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   const totalPosts = await getAllFilesFrontMatter('blog');

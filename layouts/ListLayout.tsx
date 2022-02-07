@@ -1,8 +1,8 @@
 import Link from '@/components/Link';
-import Tag from '@/components/Tag';
-import { ComponentProps, useState } from 'react';
 import Pagination from '@/components/Pagination';
+import Tag from '@/components/Tag';
 import formatDate from '@/lib/utils/formatDate';
+import { ComponentProps, useState } from 'react';
 import { PostFrontMatter } from 'types/PostFrontMatter';
 interface Props {
   posts: PostFrontMatter[];

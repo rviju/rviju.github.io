@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import Router from 'next/router';
+import { useEffect } from 'react';
 
 /**
  * Client-side complement to next-remote-watch

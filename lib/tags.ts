@@ -1,7 +1,7 @@
-import { PostFrontMatter } from 'types/PostFrontMatter';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { PostFrontMatter } from 'types/PostFrontMatter';
 import { getFiles } from './mdx';
 import kebabCase from './utils/kebabCase';
 

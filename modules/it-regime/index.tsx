@@ -2,17 +2,20 @@ import FullPageForm from '@/components/full-page-forms/FullPageForm';
 import { PageSEO } from '@/components/SEO';
 import appsData from '@/data/appsData';
 import siteMetadata from '@/data/siteMetadata';
-import { useState } from 'react';
-import { DeductionsFrame, IncomeFrame } from './frames';
-import { AgeFrame } from './frames/AgeFrame';
+import { useCallback, useState } from 'react';
+import { AgeFrame, DeductionsFrame, IncomeFrame, Result } from './components';
 import { createResetAction, useItRegimeReducer } from './reducer';
 
-export default function ItCalculator() {
+function ItCalculator() {
   const [showForm, setShowForm] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
   const [formState, dispatch] = useItRegimeReducer();
 
+  const onSubmit = useCallback(() => {
+    setShowForm(false);
+    setShowResult(true);
+  }, []);
   return (
     <>
       <PageSEO
@@ -35,10 +38,7 @@ export default function ItCalculator() {
         <div className="">
           {showForm && (
             <FullPageForm
-              onSubmit={() => {
-                setShowForm(false);
-                setShowResult(true);
-              }}
+              onSubmit={onSubmit}
               title="Nice"
               onClose={() => {
                 setShowForm(false);
@@ -79,63 +79,4 @@ export default function ItCalculator() {
   );
 }
 
-function Result({
-  income,
-  deductions,
-  age,
-  taxInOldRegime,
-  taxInNewRegime,
-  locale,
-}: {
-  income: number;
-  deductions: number;
-  age: string;
-  taxInOldRegime: number;
-  taxInNewRegime: number;
-  locale: string;
-}) {
-  const taxSavings = Math.abs(taxInNewRegime - taxInOldRegime);
-  const betterRegime =
-    taxInOldRegime < taxInNewRegime ? 'Old' : taxInOldRegime === taxInNewRegime ? 'Same' : 'New';
-  return (
-    <div className="border border-gray-400 dark:border-gray-500 rounded p-2">
-      <div className="p-2">
-        <div>
-          Annual Income:
-          <span className="font-semibold">₹{Math.round(income).toLocaleString(locale)}</span>
-        </div>
-      </div>
-      <div className="p-2">
-        <div>
-          Total Deductions:
-          <span className="font-semibold">₹{Math.round(deductions).toLocaleString(locale)}</span>
-        </div>
-      </div>
-      <div className="p-2">
-        <div>
-          Age:
-          <span className="font-semibold">{age}</span>
-        </div>
-      </div>
-      <hr className="my-2 border-gray-400 dark:border-gray-500" />
-      {betterRegime === 'Same' ? (
-        <div className="p-2 font-semibold">Tax outgo is same in both old and new regime.</div>
-      ) : (
-        <div className="p-2">
-          You can save approximately{' '}
-          <span className="font-semibold">₹{Math.abs(taxSavings).toLocaleString(locale)}</span> as
-          tax outgo by choosing <span className="font-semibold underline">{`${betterRegime}`}</span>{' '}
-          regime.
-        </div>
-      )}
-      <div className="p-2">
-        Tax Outgo as per Old Regime ~
-        <span className="font-semibold">₹{taxInOldRegime.toLocaleString(locale)}</span>
-      </div>
-      <div className="p-2">
-        Tax Outgo as per New Regime ~
-        <span className="font-semibold">₹{taxInNewRegime.toLocaleString(locale)}</span>
-      </div>
-    </div>
-  );
-}
+export { ItCalculator };

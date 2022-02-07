@@ -148,7 +148,7 @@ const FullPageForm: React.FC<{
         return index;
       }
     });
-  }, [childrenCount, index]);
+  }, [childrenCount, index, onSubmit]);
   const movePrevious = useCallback(() => setIndex((index) => (index > 0 ? index - 1 : 0)), []);
 
   return (
@@ -197,7 +197,12 @@ FullPageForm.propTypes = {
     let error = null;
     React.Children.forEach(prop, function (child) {
       if (child.type.displayName !== Frame.displayName) {
-        error = new Error('`' + componentName + '` children should be of type `Frame`.');
+        error = new Error(
+          '`' +
+            componentName +
+            '` children should be of type `Frame`. It was ' +
+            child.type.displayName
+        );
       }
     });
     return error;

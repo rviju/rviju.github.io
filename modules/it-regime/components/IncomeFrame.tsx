@@ -1,9 +1,9 @@
+import { ErrorField } from '@/components/ErrorField';
 import { Frame } from '@/components/full-page-forms/FullPageForm';
+import { Hint } from '@/components/Hint';
 import NumberInWords from '@/components/NumberInWords';
+import { RupeeField } from '@/components/RupeeField';
 import { Dispatch, useCallback, useState } from 'react';
-import { ErrorField } from '../components/ErrorField';
-import { Hint } from '../components/Hint';
-import { RupeeField } from '../components/RupeeField';
 import { createIncomeChangedAction } from '../reducer';
 import { Field, IncomeChangedAction } from '../types';
 
@@ -18,7 +18,7 @@ function IncomeFrame({ value, dispatch }: IncomeFrameProps) {
     dispatch(createIncomeChangedAction(value.value));
     setShowError(true);
     return value.isValid;
-  }, [value.isValid, value.value]);
+  }, [value.isValid, value.value, dispatch]);
   return (
     <Frame canMoveForward={canMoveForward}>
       <>

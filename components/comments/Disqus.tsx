@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-
 import siteMetadata from '@/data/siteMetadata';
+import React, { useState } from 'react';
 import { PostFrontMatter } from 'types/PostFrontMatter';
 
 interface Props {
