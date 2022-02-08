@@ -22,13 +22,11 @@ function DeductionsFrame({ value, dispatch }: DeductionsFrameProps) {
   return (
     <Frame canMoveForward={canMoveForward}>
       <>
-        <div className="font-extrabold">
-          Annual Deductions
-          <Hint>
-            Include 80c, medicalim, hra, loss on home prop, LTA, Interest exemption as applicable
-            for old regime computation
-          </Hint>
-        </div>
+        <div className="text-3xl font-extrabold leading-9 tracking-tight">Annual Deductions</div>
+        <Hint>
+          Include 80c, medicalim, hra, loss on home prop, LTA, Interest exemption as applicable for
+          old regime computation
+        </Hint>
         <RupeeField
           value={value.value}
           onChange={(value) => dispatch(createDeductionsChangedAction(value))}

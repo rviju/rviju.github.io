@@ -21,7 +21,7 @@ function CommutationsFrame({ value, dispatch }: CommutationsFrameProps) {
   return (
     <Frame canMoveForward={canMoveForward}>
       <>
-        <div className="font-extrabold">Commutation Portion</div>
+        <div className="text-3xl font-extrabold leading-9 tracking-tight">Commutation Portion</div>
         <RupeeField
           value={value.value}
           onChange={(value) => dispatch(createCommutationChangedAction(value))}

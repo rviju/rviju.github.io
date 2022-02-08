@@ -21,7 +21,7 @@ function BasicPensionFrame({ value, dispatch }: BasicPensionFrameProps) {
   return (
     <Frame canMoveForward={canMoveForward}>
       <>
-        <div className="font-extrabold">Basic Pension</div>
+        <div className="text-3xl font-extrabold leading-9 tracking-tight">Basic Pension</div>
         <RupeeField
           value={value.value}
           onChange={(value) => dispatch(createBasicPensionChangedAction(value))}

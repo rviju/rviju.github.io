@@ -13,7 +13,7 @@ function AgeFrame({ value, dispatch, options }: AgeFrameProps) {
   return (
     <Frame>
       <>
-        <label className="font-extrabold">
+        <label className="text-3xl font-extrabold leading-9 tracking-tight">
           Your Age?
           <select
             className="w-full text-black"

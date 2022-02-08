@@ -13,10 +13,10 @@ function RetirementYearFrame({ value, dispatch, options }: RetirementYearFramePr
   return (
     <Frame>
       <>
-        <label className="font-extrabold">
+        <label className="text-3xl font-extrabold leading-9 tracking-tight">
           Retirement Year?
           <select
-            className="w-full text-black"
+            className="w-full text-black mt-5"
             value={value}
             onChange={(ev) =>
               dispatch(createRetirementYearChangedAction(parseInt(ev.target.value, 10)))

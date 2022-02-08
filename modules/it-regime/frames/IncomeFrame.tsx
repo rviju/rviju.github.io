@@ -22,13 +22,13 @@ function IncomeFrame({ value, dispatch }: IncomeFrameProps) {
   return (
     <Frame canMoveForward={canMoveForward}>
       <>
-        <div className="font-extrabold">
+        <div className="text-3xl font-extrabold leading-9 tracking-tight">
           Annual Income from all Sources
-          <Hint>
-            Include income from all sources such as interest, rental, salaried or pension as
-            applicable
-          </Hint>
         </div>
+        <Hint>
+          Include income from all sources such as interest, rental, salaried or pension as
+          applicable
+        </Hint>
         <RupeeField
           value={value.value}
           onChange={(value) => dispatch(createIncomeChangedAction(value))}

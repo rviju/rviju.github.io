@@ -81,7 +81,7 @@ const officerYearOption = [
 const initial_state: DrCalculatorFormState = {
   basicPension: { value: '', isValid: false, error: '' },
   retirementYearIndex: 1,
-  commutation: { value: '', isValid: false, error: '' },
+  commutation: { value: '0', isValid: false, error: '' },
   dearnessRelief: 0,
   grossPension: 0,
   netPension: 0,
