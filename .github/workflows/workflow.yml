@@ -27,7 +27,7 @@ jobs:
         npm run export
         
     - name: Archive build output
-      run: tar --dereference --hard-dereference --directory _site/ -cvf artifact.tar ./out
+      run: tar --dereference --hard-dereference --directory out/ -cvf artifact.tar .
 
     - uses: actions/upload-artifact@main
       with:
