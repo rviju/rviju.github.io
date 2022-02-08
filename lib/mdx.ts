@@ -27,7 +27,9 @@ export function getFiles(type: 'blog' | 'authors') {
   const prefixPaths = path.join(root, 'data', type);
   const files = getAllFilesRecursively(prefixPaths);
   // Only want to return blog/path and ignore root, replace is needed to work on Windows
-  return files.map((file) => file.slice(prefixPaths.length + 1).replace(/\\/g, '/'));
+  return files
+    .filter((file) => !file.startsWith('.'))
+    .map((file) => file.slice(prefixPaths.length + 1).replace(/\\/g, '/'));
 }
 
 export function formatSlug(slug: string) {
@@ -113,7 +115,7 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
 export async function getAllFilesFrontMatter(folder: 'blog') {
   const prefixPaths = path.join(root, 'data', folder);
 
-  const files = getAllFilesRecursively(prefixPaths);
+  const files = getAllFilesRecursively(prefixPaths).filter((file) => !file.startsWith('.'));
 
   const allFrontMatter: PostFrontMatter[] = [];
 
