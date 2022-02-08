@@ -6,12 +6,13 @@
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
-    "export": "next build && node ./scripts/generate-sitemap && next export",
+    "export": "next export",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
-    "test": "jest --watch"
+    "test": "jest",
+    "jest-watch": "jest --watch"
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.58",
