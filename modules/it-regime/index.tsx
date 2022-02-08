@@ -39,7 +39,6 @@ function ItCalculator() {
           {showForm && (
             <FullPageForm
               onSubmit={onSubmit}
-              title="Nice"
               onClose={() => {
                 setShowForm(false);
                 setShowResult(false);

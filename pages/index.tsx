@@ -4,10 +4,10 @@ import { PageSEO } from '@/components/SEO';
 import appsData from '@/data/appsData';
 import siteMetadata from '@/data/siteMetadata';
 import { getAllFilesFrontMatter } from '@/lib/mdx';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import { PostFrontMatter } from 'types/PostFrontMatter';
 
-const MAX_DISPLAY = 5;
+//const MAX_DISPLAY = 5;
 
 export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
   const posts = await getAllFilesFrontMatter('blog');
@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = asyn
   return { props: { posts } };
 };
 
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home() {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />

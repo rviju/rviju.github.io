@@ -121,12 +121,11 @@ function CloseButton({ onClose }: { onClose: () => void }) {
 }
 
 const FullPageForm: React.FC<{
-  title: string;
   onClose: () => void;
   onSubmit: () => void;
   children: FunctionComponentElement<{ canMoveNext: () => boolean }>[];
   className?: string;
-}> = ({ title, onClose, onSubmit, children, className }) => {
+}> = ({ onClose, onSubmit, children, className }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
