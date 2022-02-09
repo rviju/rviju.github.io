@@ -33,8 +33,8 @@ function DrCalculator() {
           </h1>
           {!showResult && !showForm && (
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Calculate your deareness relief with effect from Feb
-              2022, your gross pension, net pension and increase in DR per month
+              Calculate your deareness relief with effect from Feb 2022, your gross pension, net
+              pension and increase in DR per month
             </p>
           )}
         </div>
