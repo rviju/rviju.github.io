@@ -59,7 +59,7 @@ function ItCalculator() {
             <Result
               income={parseInt(formState.income.value, 10)}
               deductions={parseInt(formState.deductions.value, 10)}
-              age={formState.ageOptions[formState.ageIndex-1]}
+              age={formState.ageOptions[formState.ageIndex - 1]}
               taxInOldRegime={formState.taxComputations.taxUnderOldRegime}
               taxInNewRegime={formState.taxComputations.taxUnderNewRegime}
               locale="EN-IN"
