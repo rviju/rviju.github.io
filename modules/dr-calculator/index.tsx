@@ -62,7 +62,7 @@ function DrCalculator() {
           {showResult && formState.drCalculated && (
             <Result
               basicPension={parseFloat(formState.basicPension.value)}
-              retirementYear={formState.yearOptions[formState.retirementYearIndex]}
+              retirementYear={formState.yearOptions[formState.retirementYearIndex - 1]}
               commutation={parseFloat(formState.commutation.value)}
               currentDr={formState.dearnessRelief}
               grossPension={formState.grossPension}
