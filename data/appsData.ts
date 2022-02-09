@@ -7,7 +7,7 @@ const appsData = [
   },
   {
     title: 'Dearness Relief Calculator for Bank Pensioners',
-    description: `You can calculate your DR (Dearness Relief) based on the recent slab changes made during Jan 2022 using this dr calculator for bank pensioners`,
+    description: `You can calculate applicable DR (Dearness Relief) with effect from Feb 2022 using this DR calculator for bank pensioners / family pensioners`,
     imgSrc: '/static/images/dr-calculator.png',
     href: '/apps/dr-calculator',
   },
