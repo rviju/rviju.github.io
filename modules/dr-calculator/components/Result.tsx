@@ -39,7 +39,7 @@ function Result({
       <hr className="my-2 border-gray-400 dark:border-gray-500" />
 
       <div className="p-2">
-        Dearness Relief as per 7th pay commision :
+        Dearness Relief with effect from Feb 2022 :
         <span className="font-semibold">₹ {currentDr.toLocaleString(locale)}</span>
       </div>
 
@@ -51,7 +51,7 @@ function Result({
         Net Pension : <span className="font-semibold">₹ {netPension.toLocaleString(locale)}</span>
       </div>
       <div className="p-2">
-        Increate in Dearness Relief :{' '}
+        Increase in Dearness Relief per month :{' '}
         <span className="font-semibold">₹ {increaseInDr.toLocaleString(locale)}</span>
       </div>
     </div>
