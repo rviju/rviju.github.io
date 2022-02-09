@@ -25,7 +25,7 @@ function ClericalOrOfficerFrame({
               onChange={() => dispatch(createCadreChangedAction('Clerical'))}
               checked={value === 'Clerical'}
             />{' '}
-            Clerical
+            Clerk or Substaff
           </label>
         </div>
         <div className="pb-6 pt-4">
