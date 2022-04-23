@@ -37,7 +37,7 @@ function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age
     tax = 0;
   }
   let taxAfterAgeConsideration = tax;
-  if (age === 1) {
+  if (age === 2) {
     taxAfterAgeConsideration = Math.max(0, tax - 2500);
   } else if (age === 2) {
     taxAfterAgeConsideration = Math.max(0, tax - 12500);
