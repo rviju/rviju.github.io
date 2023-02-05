@@ -133,6 +133,9 @@ function calculateTaxUnderNewRegimeFY2021to2023(income: number) {
   return taxWithCess;
 }
 function computeTax(state: ItRegimeFormState): ItRegimeFormState {
+  const calculateTaxUnderOldRegime = yearMapping[state.year].oldRegime;
+  const calculateTaxUnderNewRegime = yearMapping[state.year].newRegime;
+
   if (state.income.isValid && state.deductions.isValid) {
     const income = parseInt(state.income.value, 10);
     const deductions = parseInt(state.deductions.value, 10);

@@ -1,6 +1,5 @@
 import Link from '@/components/Link';
 import { ItCalculator } from 'modules/it-regime';
-import { useRouter } from 'next/router';
 import FourZeroFour from 'pages/404';
 
 const yearMapping = {
@@ -28,9 +27,7 @@ const ItRegimeFooter = ({ fy }: { fy: string }) => {
   return <div className="pt-12">Calculators for : {otherLinks}</div>;
 };
 
-const ItRegimePage = () => {
-  const router = useRouter();
-  const { fy = '2023-2024' } = router.query;
+const ItRegimePage = ({ fy }: { fy: string }) => {
   switch (fy) {
     case '2023-2024':
     case '2021-2022':
