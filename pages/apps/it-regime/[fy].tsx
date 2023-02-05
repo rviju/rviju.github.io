@@ -12,20 +12,20 @@ const yearMapping = {
 const ItRegimeFooter = ({ fy }: { fy: string }) => {
   const otherYears = Object.keys(yearMapping)
     .reverse()
-    .filter((val) => val !== fy)
-    .map((val) => (
-      <>
-        <Link
-          className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-          href={`/apps/it-regime/${val}`}
-          aria-label={`Link to FY ${val}`}
-        >
-          <>FY {val}</>
-        </Link>
-        <span className="px-2">|</span>
-      </>
-    ));
-  return <div className="pt-12">Calculators for : {otherYears}</div>;
+    .filter((val) => val !== fy);
+  const otherLinks = otherYears.map((val, index) => (
+    <>
+      <Link
+        className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+        href={`/apps/it-regime/${val}`}
+        aria-label={`Link to FY ${val}`}
+      >
+        <>FY {val}</>
+      </Link>
+      {index !== otherYears.length - 1 && <span className="px-2">|</span>}
+    </>
+  ));
+  return <div className="pt-12">Calculators for : {otherLinks}</div>;
 };
 
 const ItRegimePage = () => {
