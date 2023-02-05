@@ -1,6 +1,8 @@
 import Head from 'next/head';
+import { useEffect } from 'react';
 
 const Redirect = ({ redirect_to }: { redirect_to: string }) => {
+  useEffect(() => window.location.replace(redirect_to), []);
   return (
     <div>
       <Head>
@@ -10,7 +12,6 @@ const Redirect = ({ redirect_to }: { redirect_to: string }) => {
       </Head>
       <h1>Redirecting...</h1>
       <a href={redirect_to}>Click here if you are not redirected.</a>
-      <script>location=`${redirect_to}`</script>
     </div>
   );
 };
