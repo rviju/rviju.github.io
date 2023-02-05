@@ -5,12 +5,13 @@ import siteMetadata from '@/data/siteMetadata';
 import { useCallback, useState } from 'react';
 import { AgeFrame, DeductionsFrame, IncomeFrame, Result } from './components';
 import { createResetAction, useItRegimeReducer } from './reducer';
+import { yearType } from './types';
 
-function ItCalculator() {
+function ItCalculator({ year, fy }: { year: yearType; fy: string }) {
   const [showForm, setShowForm] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
-  const [formState, dispatch] = useItRegimeReducer();
+  const [formState, dispatch] = useItRegimeReducer(year);
 
   const onSubmit = useCallback(() => {
     setShowForm(false);
@@ -19,13 +20,13 @@ function ItCalculator() {
   return (
     <>
       <PageSEO
-        title={`Compare IT Regime for FY 2023-2024 - ${siteMetadata.author}`}
+        title={`Compare IT Regime for FY ${fy} - ${siteMetadata.author}`}
         description={appsData[0].description}
       />
       <div className="">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-            Compare Old and New IT Regime for FY2023-2024
+            Compare Old and New IT Regime for {fy}
           </h1>
           {!showResult && !showForm && (
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">

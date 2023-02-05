@@ -25,6 +25,7 @@ export type ItRegimeFormState = {
   ageIndex: number;
   taxComputations: TaxSection;
   ageOptions: ['Below 60 years', '60 to 80 years', 'Above 80 years'];
+  year: yearType;
 };
 
 export type IncomeChangedAction = {
@@ -51,3 +52,5 @@ export type ItRegimeActionPayLoad =
   | DeductionsChangedAction
   | AgeChangedAction
   | ResetAction;
+
+export type yearType = '2021_2022' | '2022_2023' | '2023_2024';

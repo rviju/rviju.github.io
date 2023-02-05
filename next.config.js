@@ -107,4 +107,13 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/apps/it-regime',
+        destination: '/apps/it-regime/2023-2024',
+        permanent: false,
+      },
+    ];
+  },
 });
