@@ -14,7 +14,7 @@ const ValidationSuccess: FieldValidation = {
 };
 
 const thirtyPercent = 0.3;
-const twentyFivePercent = 0.25;
+const twenttyFivePercent = 0.25;
 const twentyPercent = 0.2;
 const fifteenPercent = 0.15;
 const tenPercent = 0.1;
@@ -49,28 +49,34 @@ function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age
 }
 
 function calculateTaxUnderNewRegime(income: number) {
-  const incomeToBeTaxed = income;
+  const incomeToBeTaxed = income - 50000;
 
   let tax = 0;
-  if (incomeToBeTaxed < 500001) {
+  if (incomeToBeTaxed < 700001) {
     tax = 0; //Rebate under 87a
   } else if (incomeToBeTaxed > 1500000) {
-    tax = 187500 + (incomeToBeTaxed - 1500000) * thirtyPercent;
-  } else if (incomeToBeTaxed > 1250000) {
-    tax = 125000 + (incomeToBeTaxed - 1250000) * twentyFivePercent;
-  } else if (incomeToBeTaxed > 1000000) {
-    tax = 75000 + (incomeToBeTaxed - 1000000) * twentyPercent;
-  } else if (incomeToBeTaxed > 750000) {
-    tax = 37500 + (incomeToBeTaxed - 750000) * fifteenPercent;
-  } else if (incomeToBeTaxed > 500000) {
-    tax = 12500 + (incomeToBeTaxed - 500000) * tenPercent;
-  } else if (incomeToBeTaxed > 250000) {
-    tax = (incomeToBeTaxed - 250000) * fivePercent;
+    tax = 150000 + (incomeToBeTaxed - 1500000) * thirtyPercent;
+  } else if (incomeToBeTaxed > 1200000) {
+    tax = 90000 + (incomeToBeTaxed - 1200000) * twentyPercent;
+  } else if (incomeToBeTaxed > 900000) {
+    tax = 45000 + (incomeToBeTaxed - 900000) * fifteenPercent;
+  } else if (incomeToBeTaxed > 600000) {
+    tax = 15000 + (incomeToBeTaxed - 600000) * tenPercent;
+  } else if (incomeToBeTaxed > 300000) {
+    tax = (incomeToBeTaxed - 300000) * fivePercent;
   } else {
     tax = 0;
   }
-  const taxWithCess = tax + tax * fourPercent;
+  //surcharge
+  if (incomeToBeTaxed > 20000000) {
+    tax = tax + tax * twenttyFivePercent;
+  } else if (incomeToBeTaxed > 10000000) {
+    tax = tax + tax * fifteenPercent;
+  } else if (incomeToBeTaxed > 5000000) {
+    tax = tax + tax * tenPercent;
+  }
 
+  const taxWithCess = tax + tax * fourPercent;
   return taxWithCess;
 }
 
