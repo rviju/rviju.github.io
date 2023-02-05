@@ -15,7 +15,7 @@ const ItRegimeFooter = ({ fy }: { fy: string }) => {
     <>
       <Link
         className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-        href={`/apps/it-regime/${val}`}
+        href={`/apps/it-regime-comparison/for-financial-year-${val}`}
         aria-label={`Link to FY ${val}`}
       >
         <>FY {val}</>
