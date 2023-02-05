@@ -19,13 +19,13 @@ function ItCalculator() {
   return (
     <>
       <PageSEO
-        title={`Compare IT Regime for FY 2021-2022 & FY 2022-2023 - ${siteMetadata.author}`}
+        title={`Compare IT Regime for FY 2023-2024 - ${siteMetadata.author}`}
         description={appsData[0].description}
       />
       <div className="">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-            Compare Old and New IT Regime for FY2021-2022 & FY2022-2023
+            Compare Old and New IT Regime for FY2023-2024
           </h1>
           {!showResult && !showForm && (
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
