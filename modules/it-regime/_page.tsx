@@ -1,6 +1,5 @@
 import Link from '@/components/Link';
 import { ItCalculator } from 'modules/it-regime';
-import FourZeroFour from 'pages/404';
 
 const yearMapping = {
   '2021-2022': '2021_2022',
@@ -39,7 +38,7 @@ const ItRegimePage = ({ fy }: { fy: string }) => {
         </>
       );
     default:
-      return <FourZeroFour />;
+      return <></>;
   }
 };
 
