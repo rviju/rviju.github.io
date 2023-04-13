@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 import {
   AgeChangedAction,
   DeductionsChangedAction,
@@ -8,18 +8,18 @@ import {
   ItRegimeFormState,
   ResetAction,
   yearType,
-} from './types';
+} from "./types";
 
 const yearMapping = {
-  '2021_2022': {
+  "2021_2022": {
     oldRegime: calculateTaxUnderOldRegimeFY2021to2023,
     newRegime: calculateTaxUnderNewRegimeFY2021to2023,
   },
-  '2022_2023': {
+  "2022_2023": {
     oldRegime: calculateTaxUnderOldRegimeFY2021to2023,
     newRegime: calculateTaxUnderNewRegimeFY2021to2023,
   },
-  '2023_2024': {
+  "2023_2024": {
     oldRegime: calculateTaxUnderOldRegime,
     newRegime: calculateTaxUnderNewRegime,
   },
@@ -38,7 +38,11 @@ const tenPercent = 0.1;
 const fivePercent = 0.05;
 const fourPercent = 0.04;
 
-function calculateTaxUnderOldRegimeFY2021to2023(annualIncome: number, deduction: number, age: number) {
+function calculateTaxUnderOldRegimeFY2021to2023(
+  annualIncome: number,
+  deduction: number,
+  age: number
+) {
   const incomeToBeTaxed = annualIncome - deduction;
 
   let tax = 0;
@@ -60,14 +64,22 @@ function calculateTaxUnderOldRegimeFY2021to2023(annualIncome: number, deduction:
     taxAfterAgeConsideration = Math.max(0, tax - 12500);
   }
 
-  const taxWithCess = taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
+  const taxWithCess =
+    taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
 
   return taxWithCess;
 }
 
-
-function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age: number) {
-  return calculateTaxUnderOldRegimeFY2021to2023(annualIncome, deduction + 50000, age);
+function calculateTaxUnderOldRegime(
+  annualIncome: number,
+  deduction: number,
+  age: number
+) {
+  return calculateTaxUnderOldRegimeFY2021to2023(
+    annualIncome,
+    deduction + 50000,
+    age
+  );
 }
 
 function calculateTaxUnderNewRegime(income: number) {
@@ -147,7 +159,11 @@ function computeTax(state: ItRegimeFormState): ItRegimeFormState {
     return {
       ...state,
       taxComputations: {
-        taxUnderOldRegime: calculateTaxUnderOldRegime(income, deductions, state.ageIndex),
+        taxUnderOldRegime: calculateTaxUnderOldRegime(
+          income,
+          deductions,
+          state.ageIndex
+        ),
         taxUnderNewRegime: calculateTaxUnderNewRegime(income),
         taxComputed: true,
       },
@@ -160,7 +176,7 @@ function computeTax(state: ItRegimeFormState): ItRegimeFormState {
   }
 }
 
-function numberChanged(payload: string, fieldName: 'Income' | 'Deductions') {
+function numberChanged(payload: string, fieldName: "Income" | "Deductions") {
   let isInValid: FieldValidation = null;
   const value = parseInt(payload, 10);
   isInValid =
@@ -170,27 +186,34 @@ function numberChanged(payload: string, fieldName: 'Income' | 'Deductions') {
 
   isInValid =
     !isInValid && payload.length > 9
-      ? { isValid: false, error: `We support ${fieldName} less than 999 Crores only` }
+      ? {
+          isValid: false,
+          error: `We support ${fieldName} less than 999 Crores only`,
+        }
       : isInValid;
   return { value: payload, ...(isInValid ?? ValidationSuccess) };
 }
 
-function incomeChanged(action: IncomeChangedAction): Partial<ItRegimeFormState> {
-  return { income: numberChanged(action.payload, 'Income') };
+function incomeChanged(
+  action: IncomeChangedAction
+): Partial<ItRegimeFormState> {
+  return { income: numberChanged(action.payload, "Income") };
 }
 
-function deductionsChanged(action: DeductionsChangedAction): Partial<ItRegimeFormState> {
-  return { deductions: numberChanged(action.payload, 'Deductions') };
+function deductionsChanged(
+  action: DeductionsChangedAction
+): Partial<ItRegimeFormState> {
+  return { deductions: numberChanged(action.payload, "Deductions") };
 }
 
 const initialize = (year: yearType): ItRegimeFormState => ({
-  income: { value: '', isValid: false, error: '' },
-  deductions: { value: '', isValid: false, error: '' },
+  income: { value: "", isValid: false, error: "" },
+  deductions: { value: "", isValid: false, error: "" },
   ageIndex: 0,
   taxComputations: {
     taxComputed: false,
   },
-  ageOptions: ['Below 60 years', '60 to 80 years', 'Above 80 years'],
+  ageOptions: ["Below 60 years", "60 to 80 years", "Above 80 years"],
   year: year,
 });
 
@@ -200,16 +223,16 @@ function ItRegimeFormReducer(
 ): ItRegimeFormState {
   let returnState: ItRegimeFormState;
   switch (action.type) {
-    case 'income_changed':
+    case "income_changed":
       returnState = { ...state, ...incomeChanged(action) };
       break;
-    case 'age_changed':
+    case "age_changed":
       returnState = { ...state, ageIndex: action.payload.ageIndex };
       break;
-    case 'deductions_changed':
+    case "deductions_changed":
       returnState = { ...state, ...deductionsChanged(action) };
       break;
-    case 'reset':
+    case "reset":
       returnState = { ...initialize(state.year) };
   }
 
@@ -220,17 +243,19 @@ export const useItRegimeReducer = (year: yearType) =>
   useReducer(ItRegimeFormReducer, initialize(year));
 
 export function createIncomeChangedAction(value: string): IncomeChangedAction {
-  return { type: 'income_changed', payload: value };
+  return { type: "income_changed", payload: value };
 }
 
-export function createDeductionsChangedAction(value: string): DeductionsChangedAction {
-  return { type: 'deductions_changed', payload: value };
+export function createDeductionsChangedAction(
+  value: string
+): DeductionsChangedAction {
+  return { type: "deductions_changed", payload: value };
 }
 
 export function createAgeChangedAction(value: number): AgeChangedAction {
-  return { type: 'age_changed', payload: { ageIndex: value } };
+  return { type: "age_changed", payload: { ageIndex: value } };
 }
 
 export function createResetAction(): ResetAction {
-  return { type: 'reset' };
+  return { type: "reset" };
 }
