@@ -39,7 +39,9 @@ const fivePercent = 0.05;
 const fourPercent = 0.04;
 
 function calculateTaxUnderOldRegimeFY2021to2023(
-  annualIncome: number, deduction: number, age: number
+  annualIncome: number, 
+  deduction: number, 
+  age: number
 ) {
   const incomeToBeTaxed = annualIncome - deduction;
 
