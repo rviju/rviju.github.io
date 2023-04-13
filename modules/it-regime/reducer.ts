@@ -67,7 +67,7 @@ function calculateTaxUnderOldRegimeFY2021to2023(annualIncome: number, deduction:
 
 
 function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age: number) {
-  return calculateTaxUnderOldRegimeFY2021to2023(annualIncome, deduction+50000, age);
+  return calculateTaxUnderOldRegimeFY2021to2023(annualIncome, deduction + 50000, age);
 }
 
 function calculateTaxUnderNewRegime(income: number) {
