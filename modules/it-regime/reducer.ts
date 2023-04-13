@@ -12,11 +12,11 @@ import {
 
 const yearMapping = {
   '2021_2022': {
-    oldRegime: calculateTaxUnderOldRegime,
+    oldRegime: calculateTaxUnderOldRegimeFY2021to2023,
     newRegime: calculateTaxUnderNewRegimeFY2021to2023,
   },
   '2022_2023': {
-    oldRegime: calculateTaxUnderOldRegime,
+    oldRegime: calculateTaxUnderOldRegimeFY2021to2023,
     newRegime: calculateTaxUnderNewRegimeFY2021to2023,
   },
   '2023_2024': {
@@ -38,8 +38,8 @@ const tenPercent = 0.1;
 const fivePercent = 0.05;
 const fourPercent = 0.04;
 
-function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age: number) {
-  const incomeToBeTaxed = annualIncome - deduction - 50000;
+function calculateTaxUnderOldRegimeFY2021to2023(annualIncome: number, deduction: number, age: number) {
+  const incomeToBeTaxed = annualIncome - deduction;
 
   let tax = 0;
   if (incomeToBeTaxed < 500001) {
@@ -63,6 +63,11 @@ function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age
   const taxWithCess = taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
 
   return taxWithCess;
+}
+
+
+function calculateTaxUnderOldRegime(annualIncome: number, deduction: number, age: number) {
+  return calculateTaxUnderOldRegimeFY2021to2023(annualIncome, (deduction+50000), age);
 }
 
 function calculateTaxUnderNewRegime(income: number) {
