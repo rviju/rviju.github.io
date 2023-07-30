@@ -70,7 +70,6 @@ export function calculateDr(dateIndex: number, basicPension: number, avgIndex: n
   } else {
     let index = 0;
     let dr = Big(0);
-    const lastTo = 0;
 
     while (filteredRecords[index].upTo < basicPension) {
       index++;

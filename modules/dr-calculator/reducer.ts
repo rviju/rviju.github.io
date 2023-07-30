@@ -2,8 +2,6 @@ import { useReducer } from 'react';
 import { AverageIndex, calculateDr } from './dr-calculator';
 import {
   BasicPensionChangedAction,
-  Cadre,
-  CadreChangedAction,
   CommutationChangedAction,
   DrActionPayLoad,
   DrCalculatorFormState,
@@ -22,10 +20,6 @@ export function createCommutationChangedAction(value: string): CommutationChange
 
 export function createRetirementYearChangedAction(value: number): RetirementYearChangedAction {
   return { type: 'retirement_year_changed', payload: { retirementYearIndex: value } };
-}
-
-export function createCadreChangedAction(value: Cadre): CadreChangedAction {
-  return { type: 'cadre_changed', payload: value };
 }
 
 export function createResetAction(): ResetAction {
@@ -68,15 +62,6 @@ const clericalYearOption = [
   'Between 01-Nov-2012 and 31-Oct-2017',
   'On or After 01-Nov-2017',
 ];
-const officerYearOption = [
-  'Before 01-July-1993',
-  'Between 01-July-1993 and 31-Mar-1998',
-  'Between 01-Apr-1998 and 31-Oct-2002',
-  'Between 01-Nov-2002 and 31-Oct-2007',
-  'Between 01-Nov-2007 and 31-Oct-2012',
-  'Between 01-Nov-2012 and 31-Oct-2017',
-  'On or After 01-Nov-2017',
-];
 
 const initial_state: DrCalculatorFormState = {
   basicPension: { value: '', isValid: false, error: '' },
@@ -85,7 +70,6 @@ const initial_state: DrCalculatorFormState = {
   dearnessRelief: 0,
   grossPension: 0,
   netPension: 0,
-  cadre: 'Clerical',
   yearOptions: clericalYearOption,
   drCalculated: false,
 };
@@ -105,12 +89,6 @@ function DrCalculatorFormReducer(
     case 'commutation_changed':
       returnState = { ...state, ...deductionsChanged(action) };
       break;
-    case 'cadre_changed':
-      returnState = {
-        ...state,
-        cadre: action.payload,
-        yearOptions: action.payload === 'Clerical' ? clericalYearOption : officerYearOption,
-      };
       break;
     case 'reset':
       returnState = { ...initial_state };

@@ -18,7 +18,6 @@ export type Field<T> = {
   value: T;
 } & FieldValidation;
 
-export type Cadre = 'Clerical' | 'Officer';
 export type DrCalculatorFormState = {
   basicPension: Field<string>;
   retirementYearIndex: number;
@@ -27,7 +26,6 @@ export type DrCalculatorFormState = {
   grossPension?: number;
   netPension?: number;
   yearOptions: Array<string>;
-  cadre: Cadre;
   drCalculated: boolean;
 };
 
@@ -46,11 +44,6 @@ export type RetirementYearChangedAction = {
   payload: { retirementYearIndex: number };
 };
 
-export type CadreChangedAction = {
-  type: 'cadre_changed';
-  payload: Cadre;
-};
-
 export type ResetAction = {
   type: 'reset';
 };
@@ -59,5 +52,4 @@ export type DrActionPayLoad =
   | BasicPensionChangedAction
   | CommutationChangedAction
   | RetirementYearChangedAction
-  | CadreChangedAction
   | ResetAction;

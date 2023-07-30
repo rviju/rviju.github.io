@@ -4,7 +4,6 @@ import appsData from '@/data/appsData';
 import siteMetadata from '@/data/siteMetadata';
 import { useCallback, useState } from 'react';
 import { BasicPensionFrame } from './components/BasicPensionFrame';
-import { ClericalOrOfficerFrame } from './components/ClericalOrOfficerFrame';
 import { CommutationsFrame } from './components/CommutationsFrame';
 import { Result } from './components/Result';
 import { RetirementYearFrame } from './components/RetirementYearFrame';
@@ -50,7 +49,6 @@ function DrCalculator() {
               className="text-black bg-white dark:bg-gray-900 dark:text-white text-4xl"
             >
               <BasicPensionFrame value={formState.basicPension} dispatch={dispatch} />
-              <ClericalOrOfficerFrame value={formState.cadre} dispatch={dispatch} />
               <RetirementYearFrame
                 value={formState.retirementYearIndex}
                 options={formState.yearOptions}

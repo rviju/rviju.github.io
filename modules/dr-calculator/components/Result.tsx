@@ -37,12 +37,12 @@ function Result({
       <hr className="my-2 border-gray-400 dark:border-gray-500" />
 
       <div className="p-2">
-        Dearness Relief with effect from Aug 2023 :
+        Dearness Relief with effect from Aug 2023 :{' '}
         <span className="font-semibold">₹ {currentDr.toLocaleString(locale)}</span>
       </div>
 
       <div className="p-2">
-        Gross Pension :{' '}
+        Gross Pension (Including exgratia ₹800 or ₹450 as applicable) :{' '}
         <span className="font-semibold">₹ {grossPension.toLocaleString(locale)}</span>
       </div>
       <div className="p-2">
