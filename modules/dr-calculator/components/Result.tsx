@@ -5,7 +5,6 @@ function Result({
   currentDr,
   grossPension,
   netPension,
-  increaseInDr,
   locale,
 }: {
   basicPension: number;
@@ -14,7 +13,6 @@ function Result({
   currentDr: number;
   grossPension: number;
   netPension: number;
-  increaseInDr: number;
   locale: string;
 }) {
   return (
@@ -49,10 +47,6 @@ function Result({
       </div>
       <div className="p-2">
         Net Pension : <span className="font-semibold">₹ {netPension.toLocaleString(locale)}</span>
-      </div>
-      <div className="p-2">
-        Increase in Dearness Relief per month :{' '}
-        <span className="font-semibold">₹ {increaseInDr.toLocaleString(locale)}</span>
       </div>
     </div>
   );

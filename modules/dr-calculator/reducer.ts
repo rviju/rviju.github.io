@@ -128,19 +128,17 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     const currentDr = calculateDr(
       state.retirementYearIndex,
       parseInt(state.basicPension.value, 10),
-      AverageIndex.Q12022
+      AverageIndex.current
     );
 
-    const previousDr = calculateDr(state.retirementYearIndex, basicPension, AverageIndex.Q42021);
-    const grossPension = parseFloat(currentDr) + basicPension;
+    const grossPension = parseFloat(currentDr.dr) + basicPension + currentDr.exGratia;
     const netPension = grossPension - parseFloat(state.commutation.value);
     return {
       ...state,
       drCalculated: true,
-      dearnessRelief: currentDr,
+      dearnessRelief: currentDr.dr,
       grossPension,
       netPension,
-      netIncreaseInDr: parseFloat(currentDr) - parseFloat(previousDr),
     };
   }
   return {
@@ -149,6 +147,5 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     dearnessRelief: null,
     grossPension: null,
     netPension: null,
-    netIncreaseInDr: null,
   };
 }

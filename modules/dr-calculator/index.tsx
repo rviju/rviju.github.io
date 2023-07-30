@@ -67,7 +67,6 @@ function DrCalculator() {
               currentDr={formState.dearnessRelief}
               grossPension={formState.grossPension}
               netPension={formState.netPension}
-              increaseInDr={formState.netIncreaseInDr}
               locale="EN-IN"
             />
           )}

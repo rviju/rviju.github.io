@@ -26,7 +26,6 @@ export type DrCalculatorFormState = {
   dearnessRelief?: number;
   grossPension?: number;
   netPension?: number;
-  netIncreaseInDr?: number;
   yearOptions: Array<string>;
   cadre: Cadre;
   drCalculated: boolean;
