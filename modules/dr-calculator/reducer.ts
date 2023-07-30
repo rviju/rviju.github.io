@@ -55,8 +55,8 @@ function deductionsChanged(action: CommutationChangedAction): Partial<DrCalculat
 
 const clericalYearOption = [
   'Before 01-Nov-1992',
-  'Between 01-Nov-1992 and 31-Mar-1998',
-  'Between 01-Apr-1998 and 31-Oct-2002',
+  'Between 01-Nov-1992 and 31-Oct-1997',
+  'Between 01-Nov-1997 and 31-Oct-2002',
   'Between 01-Nov-2002 and 31-Oct-2007',
   'Between 01-Nov-2007 and 31-Oct-2012',
   'Between 01-Nov-2012 and 31-Oct-2017',
