@@ -26,7 +26,7 @@ class DrTableRow implements DrTableRowType {
 }
 
 export const AverageIndex = {
-  current: 8844,
+  current: 8881,
 };
 
 const truthTable2023: Array<DrTableRow> = [
