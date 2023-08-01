@@ -35,8 +35,8 @@ class MyDocument extends Document {
           <meta name="application-name" content="Vijju's" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="msapplication-config" content="/static/favicons/browserconfig.xml?v=1" />
-          <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
-          <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"/>
+          <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
