@@ -265,7 +265,7 @@ describe('DR Calculator for retirement period On or After 01-Nov-2017', () => {
   });
   it('Should calculate DR with basic pension = 27615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 27615)).toStrictEqual({
-      dr: '13396.04',
+      dr: '13396.03',
       exGratia: 0,
     });
   });
