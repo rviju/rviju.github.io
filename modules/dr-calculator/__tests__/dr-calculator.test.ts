@@ -253,37 +253,37 @@ describe('DR Calculator for retirement period On or After 01-Nov-2017', () => {
 
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toStrictEqual({
-      dr: '9696.16',
+      dr: '9702.00',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension = 25000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 25000)).toStrictEqual({
-      dr: '12120.19',
+      dr: '12127.50',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension = 27615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 27615)).toStrictEqual({
-      dr: '13387.97',
+      dr: '13396.04',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension = 35000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 35000)).toStrictEqual({
-      dr: '16968.27',
+      dr: '16978.50',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension = 40000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 40000)).toStrictEqual({
-      dr: '19392.31',
+      dr: '19404.00',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension > 45000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 45000)).toStrictEqual({
-      dr: '21816.35',
+      dr: '21829.50',
       exGratia: 0,
     });
   });
