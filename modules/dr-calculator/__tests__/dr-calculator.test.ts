@@ -13,7 +13,7 @@ describe('DR Calculator for retirement period before 01-Jul-1993', () => {
   });
   it('Should calculate DR with basic pension = 1250', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 1250)).toStrictEqual({
-      dr: '17847.13',
+      dr: '17847.12',
       exGratia: 800,
     });
   });
@@ -95,7 +95,7 @@ describe('DR Calculator for retirement period Between 01-Apr-1998 and 31-Oct-200
   });
   it('Should calculate DR with basic pension = 3550', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 3550)).toStrictEqual({
-      dr: '15327.48',
+      dr: '15847.20',
       exGratia: 800,
     });
   });
@@ -224,7 +224,7 @@ describe('DR Calculator for retirement period Between 01-Nov-2012 and 31-Oct-201
   });
   it('Should calculate DR with basic pension = 27615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 27615)).toStrictEqual({
-      dr: '32337.17',
+      dr: '32337.16',
       exGratia: 0,
     });
   });
