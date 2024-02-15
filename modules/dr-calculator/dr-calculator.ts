@@ -26,7 +26,7 @@ class DrTableRow implements DrTableRowType {
 }
 
 export const AverageIndex = {
-  current: 8881,
+  current: 9122.33,
 };
 
 const truthTable2023: Array<DrTableRow> = [
@@ -51,9 +51,9 @@ const truthTable2023: Array<DrTableRow> = [
 function calculateDrPercentage(drInfo: DrTableRow, avgIndex: number) {
   const avg = Big(avgIndex);
   const numberOfSlabs = Big(avg.minus(drInfo.baseIndex).div(4).toFixed(0, Big.roundDown));
-  //console.log('Number of Slabs:', numberOfSlabs.toString());
+  console.log('Number of Slabs:', numberOfSlabs.toString());
   const result = numberOfSlabs.mul(drInfo.factor).toFixed(2, Big.roundDown);
-  //console.log('DR %', result);
+  console.log('DR %', result);
   return result;
 }
 
