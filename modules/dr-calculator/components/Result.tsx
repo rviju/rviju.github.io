@@ -36,7 +36,7 @@ function Result({
       <hr className="my-2 border-gray-400 dark:border-gray-500" />
 
       <div className="p-2">
-        Dearness Relief with effect from Aug 2023 :{' '}
+        Dearness Relief :{' '}
         <span className="font-semibold">
           ₹{' '}
           {currentDr.toLocaleString(locale, {
