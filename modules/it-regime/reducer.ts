@@ -78,6 +78,8 @@ function calculateTaxUnderNewRegime(income: number) {
   let tax = 0;
   if (incomeToBeTaxed < 700001) {
     tax = 0; //Rebate under 87a
+  } else if(incomeToBeTaxed < 727778) {
+    tax = incomeToBeTaxed - 700000;
   } else if (incomeToBeTaxed > 1500000) {
     tax = 150000 + (incomeToBeTaxed - 1500000) * thirtyPercent;
   } else if (incomeToBeTaxed > 1200000) {
