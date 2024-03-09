@@ -132,12 +132,11 @@ export function calculateDr(dateIndex: number, basicPension: number) {
   const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension);
   const exGratiaFactorMar2024BasedOnDateIndex =
     exGratiaFactorMar2024[dateIndex - 1];
-  const exGratiaIncreasePerMonth = Big.round(
-    basicPension
-      .add(oct2022Dr.dr)
-      .mul(exGratiaFactorMar2024BasedOnDateIndex)
-      .div(100)
-  ).mul(100);
+  const exGratiaIncreasePerMonth =
+    Math.round(
+      ((basicPension + oct2022Dr.dr) * exGratiaFactorMar2024BasedOnDateIndex) /
+        100
+    ) * 100;
   return {
     dr: currentDr.dr,
     exGratia: currentDr.exGratia + exGratiaIncreasePerMonth,
