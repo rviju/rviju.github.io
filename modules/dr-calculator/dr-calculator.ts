@@ -1,5 +1,5 @@
-import Big from "big.js";
-import { DrTableRowType } from "./types";
+import Big from 'big.js';
+import { DrTableRowType } from './types';
 
 class DrTableRow implements DrTableRowType {
   public dateIndex: number;
@@ -72,27 +72,18 @@ const exGratiaFactorMar2024 = [0.17, 0.15, 0.12, 0.07, 0.05, 0.03, 0.02];
 
 function calculateDrPercentage(drInfo: DrTableRow, avgIndex: number) {
   const avg = Big(avgIndex);
-  const numberOfSlabs = Big(
-    avg.minus(drInfo.baseIndex).div(4).toFixed(0, Big.round)
-  );
+  const numberOfSlabs = Big(avg.minus(drInfo.baseIndex).div(4).toFixed(0, Big.round));
   //console.log('Number of Slabs:', numberOfSlabs.toString());
   const result = numberOfSlabs.mul(drInfo.factor).toFixed(2, Big.round);
   //console.log('DR %', result);
   return result;
 }
 
-function calculateDrImpl(
-  filteredRecords: DrTableRow[],
-  basicPension: number,
-  avgIndex: number
-) {
+function calculateDrImpl(filteredRecords: DrTableRow[], basicPension: number, avgIndex: number) {
   const numberOfRecords = filteredRecords.length;
   if (numberOfRecords === 1) {
     const pension = Big(basicPension);
-    const dr = pension
-      .mul(calculateDrPercentage(filteredRecords[0], avgIndex))
-      .div(100)
-      .toFixed(2, Big.roundDown);
+    const dr = pension.mul(calculateDrPercentage(filteredRecords[0], avgIndex)).div(100);
     return { dr, exGratia: filteredRecords[0].exGratia };
   } else {
     let index = 0;
@@ -102,43 +93,70 @@ function calculateDrImpl(
       index++;
     }
     const num = Big(basicPension);
+    const drValue = num.mul(calculateDrPercentage(filteredRecords[index], avgIndex)).div(100);
+    dr = dr.plus(drValue);
+    const exGratia = filteredRecords[index].exGratia;
+    return { dr, exGratia };
+  }
+}
+
+function calculateDrOct2022Impl(
+  filteredRecords: DrTableRow[],
+  basicPension: number,
+  avgIndex: number
+) {
+  const numberOfRecords = filteredRecords.length;
+  //console.log('Number of records', numberOfRecords);
+  if (numberOfRecords === 1) {
+    const pension = Big(basicPension);
+    return { dr: pension.mul(calculateDrPercentage(filteredRecords[0], avgIndex)).div(100) };
+  } else {
+    let index = 0;
+    let dr = Big(0);
+    let lastTo = 0;
+    while (filteredRecords[index].upTo <= basicPension) {
+      const num = Big(filteredRecords[index].upTo);
+      const drValue = num
+        .minus(lastTo)
+        .mul(calculateDrPercentage(filteredRecords[index], avgIndex))
+        .div(100);
+      dr = dr.plus(drValue);
+      lastTo = filteredRecords[index].upTo;
+      index++;
+    }
+    const num = Big(basicPension);
     const drValue = num
+      .minus(lastTo)
       .mul(calculateDrPercentage(filteredRecords[index], avgIndex))
       .div(100);
     dr = dr.plus(drValue);
-    const exGratia = filteredRecords[index].exGratia;
-    return { dr: dr.toFixed(2, Big.roundDown), exGratia };
+    return { dr };
   }
 }
 
 function calculateCurrentDr(dateIndex: number, basicPension: number) {
   const avgIndex = AverageIndex.current;
-  const filteredRecords = truthTable2023.filter(
-    (val) => val.dateIndex === dateIndex
-  );
+  const filteredRecords = truthTable2023.filter((val) => val.dateIndex === dateIndex);
   return calculateDrImpl(filteredRecords, basicPension, avgIndex);
 }
 
 function calculateOct2022Dr(dateIndex: number, basicPension: number) {
   const avgIndex = AverageIndex.onOct2022;
-  const filteredRecords = truthTableOct2022.filter(
-    (val) => val.dateIndex === dateIndex
-  );
-  return calculateDrImpl(filteredRecords, basicPension, avgIndex);
+  const filteredRecords = truthTableOct2022.filter((val) => val.dateIndex === dateIndex);
+  return calculateDrOct2022Impl(filteredRecords, basicPension, avgIndex);
 }
 
 export function calculateDr(dateIndex: number, basicPension: number) {
   const currentDr = calculateCurrentDr(dateIndex, basicPension);
   const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension);
-  const exGratiaFactorMar2024BasedOnDateIndex =
-    exGratiaFactorMar2024[dateIndex - 1];
+  const exGratiaFactorMar2024BasedOnDateIndex = exGratiaFactorMar2024[dateIndex - 1];
   const exGratiaIncreasePerMonth =
     Math.round(
-      ((basicPension + oct2022Dr.dr) * exGratiaFactorMar2024BasedOnDateIndex) /
+      Big(basicPension).plus(oct2022Dr.dr).mul(exGratiaFactorMar2024BasedOnDateIndex).toNumber() /
         100
     ) * 100;
   return {
-    dr: currentDr.dr,
+    dr: currentDr.dr.toFixed(2, Big.roundDown),
     exGratia: currentDr.exGratia + exGratiaIncreasePerMonth,
     additionalExgratia: exGratiaIncreasePerMonth,
   };
