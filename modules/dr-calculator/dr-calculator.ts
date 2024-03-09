@@ -87,7 +87,7 @@ function calculateDrPercentage(drInfo: DrTableRow, avgIndex: number) {
   return result;
 }
 
-function calculateDr(filteredRecords: DrTableRow[], basicPension: number, avgIndex: number) {
+function calculateDrImpl(filteredRecords: DrTableRow[], basicPension: number, avgIndex: number) {
   const numberOfRecords = filteredRecords.length;
   if (numberOfRecords === 1) {
     const pension = Big(basicPension);
@@ -114,13 +114,13 @@ function calculateDr(filteredRecords: DrTableRow[], basicPension: number, avgInd
 function calculateCurrentDr(dateIndex: number, basicPension: number) {
   const avgIndex = AverageIndex.current;
   const filteredRecords = truthTable2023.filter((val) => val.dateIndex === dateIndex);
-  return calculateDr(filteredRecords, basicPension, avgIndex);
+  return calculateDrImpl(filteredRecords, basicPension, avgIndex);
 }
 
 function calculateOct2022Dr(dateIndex: number, basicPension: number) {
   const avgIndex = AverageIndex.onOct2022;
   const filteredRecords = truthTableOct2022.filter((val) => val.dateIndex === dateIndex);
-  return calculateDr(filteredRecords, basicPension, avgIndex);
+  return calculateDrImpl(filteredRecords, basicPension, avgIndex);
 }
 
 export function calculateDr(dateIndex: number, basicPension: number) {
