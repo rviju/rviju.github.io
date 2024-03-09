@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { AverageIndex, calculateDr } from './dr-calculator';
+import { calculateDr } from './dr-calculator';
 import {
   BasicPensionChangedAction,
   CommutationChangedAction,
@@ -112,14 +112,13 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     const grossPension = parseFloat(currentDr.dr) + basicPension + currentDr.exGratia;
     const netPension = grossPension - parseFloat(state.commutation.value);
     const additionalExgratia = currentDr.additionalExgratia;
-    
     return {
       ...state,
       drCalculated: true,
       dearnessRelief: currentDr.dr,
       grossPension,
       netPension,
-      additionalExgratia
+      additionalExgratia,
     };
   }
   return {
@@ -128,6 +127,6 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     dearnessRelief: null,
     grossPension: null,
     netPension: null,
-    additionalExgratia: null
+    additionalExgratia: null,
   };
 }

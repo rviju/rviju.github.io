@@ -27,7 +27,7 @@ class DrTableRow implements DrTableRowType {
 
 export const AverageIndex = {
   current: 9122.33,
-  onOct2022: 8456.00 
+  onOct2022: 8456.00,
 };
 
 const truthTable2023: Array<DrTableRow> = [
@@ -69,13 +69,7 @@ const truthTableOct2022: Array<DrTableRow> = [
 ];
 
 const exGratiaFactorMar2024 = [
-  0.17,
-  0.15,
-  0.12,
-  0.07,
-  0.05,
-  0.03,
-  0.02
+  0.17, 0.15, 0.12, 0.07, 0.05, 0.03, 0.02
 ]
 
 function calculateDrPercentage(drInfo: DrTableRow, avgIndex: number) {
@@ -124,11 +118,9 @@ function calculateOct2022Dr(dateIndex: number, basicPension: number) {
 }
 
 export function calculateDr(dateIndex: number, basicPension: number) {
-  const currentDr = calculateCurrentDr(dateIndex, basicPension)
-  const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension)
-  const exGratiaFactorMar2024BasedOnDateIndex = exGratiaFactorMar2024[dateIndex-1]
-  const exGratiaIncreasePerMonth = Math.round((basicPension + oct2022Dr.dr)*exGratiaFactorMar2024BasedOnDateIndex /100)*100
-  return { dr: currentDr.dr, exGratia: currentDr.exGratia + exGratiaIncreasePerMonth, additionalExgratia: exGratiaIncreasePerMonth }
+  const currentDr = calculateCurrentDr(dateIndex, basicPension);
+  const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension);
+  const exGratiaFactorMar2024BasedOnDateIndex = exGratiaFactorMar2024[dateIndex-1];
+  const exGratiaIncreasePerMonth = Math.round((basicPension + oct2022Dr.dr) * exGratiaFactorMar2024BasedOnDateIndex / 100) * 100;
+  return { dr: currentDr.dr, exGratia: currentDr.exGratia + exGratiaIncreasePerMonth, additionalExgratia: exGratiaIncreasePerMonth };
 }
-
-

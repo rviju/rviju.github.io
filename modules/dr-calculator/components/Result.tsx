@@ -86,7 +86,7 @@ function Result({
         Arrears as on Mar 2024 (From Nov 2022 to Feb 2024) :{' '}
         <span className="font-semibold">
           ₹{' '}
-          {(additionalExgratia*16).toLocaleString(locale, {
+          {(additionalExgratia * 16).toLocaleString(locale, {
             style: 'decimal',
             maximumFractionDigits: 2,
             minimumFractionDigits: 2,
