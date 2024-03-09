@@ -70,6 +70,7 @@ const initial_state: DrCalculatorFormState = {
   dearnessRelief: 0,
   grossPension: 0,
   netPension: 0,
+  additionalExgratia: 0,
   yearOptions: clericalYearOption,
   drCalculated: false,
 };
@@ -105,18 +106,20 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     const basicPension = parseInt(state.basicPension.value, 10);
     const currentDr = calculateDr(
       state.retirementYearIndex,
-      parseInt(state.basicPension.value, 10),
-      AverageIndex.current
+      parseInt(state.basicPension.value, 10)
     );
 
     const grossPension = parseFloat(currentDr.dr) + basicPension + currentDr.exGratia;
     const netPension = grossPension - parseFloat(state.commutation.value);
+    const additionalExgratia = currentDr.additionalExgratia;
+    
     return {
       ...state,
       drCalculated: true,
       dearnessRelief: currentDr.dr,
       grossPension,
       netPension,
+      additionalExgratia
     };
   }
   return {
@@ -125,5 +128,6 @@ function computeDr(state: DrCalculatorFormState): DrCalculatorFormState {
     dearnessRelief: null,
     grossPension: null,
     netPension: null,
+    additionalExgratia: null
   };
 }

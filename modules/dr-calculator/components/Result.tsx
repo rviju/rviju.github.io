@@ -5,6 +5,7 @@ function Result({
   currentDr,
   grossPension,
   netPension,
+  additionalExgratia,
   locale,
 }: {
   basicPension: number;
@@ -13,6 +14,7 @@ function Result({
   currentDr: number;
   grossPension: number;
   netPension: number;
+  additionalExgratia: number;
   locale: string;
 }) {
   return (
@@ -46,9 +48,19 @@ function Result({
           })}
         </span>
       </div>
-
       <div className="p-2">
-        Gross Pension (Including exgratia ₹800 or ₹450 as applicable) :{' '}
+        Additional exgratia :{' '}
+        <span className="font-semibold">
+          ₹{' '}
+          {additionalExgratia.toLocaleString(locale, {
+            style: 'decimal',
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          })}
+        </span>
+      </div>
+      <div className="p-2">
+        Gross Pension :{' '}
         <span className="font-semibold">
           ₹{' '}
           {grossPension.toLocaleString(locale, {
@@ -63,6 +75,18 @@ function Result({
         <span className="font-semibold">
           ₹{' '}
           {netPension.toLocaleString(locale, {
+            style: 'decimal',
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2,
+          })}
+        </span>
+      </div>
+
+      <div className="p-2">
+        Arrears as on Mar 2024 (From Nov 2022 to Feb 2024) :{' '}
+        <span className="font-semibold">
+          ₹{' '}
+          {(additionalExgratia*16).toLocaleString(locale, {
             style: 'decimal',
             maximumFractionDigits: 2,
             minimumFractionDigits: 2,
