@@ -72,7 +72,7 @@ const exGratiaFactorMar2024 = [0.17, 0.15, 0.12, 0.07, 0.05, 0.03, 0.02];
 
 function calculateDrPercentage(drInfo: DrTableRow, avgIndex: number) {
   const avg = Big(avgIndex);
-  const numberOfSlabs = Big(avg.minus(drInfo.baseIndex).div(4).toFixed(0, Big.round));
+  const numberOfSlabs = Big(avg.minus(drInfo.baseIndex).div(4).toFixed(0, Big.roundDown));
   //console.log('Number of Slabs:', numberOfSlabs.toString());
   const result = numberOfSlabs.mul(drInfo.factor).toFixed(2, Big.round);
   //console.log('DR %', result);
