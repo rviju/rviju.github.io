@@ -1,13 +1,13 @@
-import FullPageForm from '@/components/full-page-forms/FullPageForm';
-import { PageSEO } from '@/components/SEO';
-import appsData from '@/data/appsData';
-import siteMetadata from '@/data/siteMetadata';
-import { useCallback, useState } from 'react';
-import { BasicPensionFrame } from './components/BasicPensionFrame';
-import { CommutationsFrame } from './components/CommutationsFrame';
-import { Result } from './components/Result';
-import { RetirementYearFrame } from './components/RetirementYearFrame';
-import { createResetAction, useDrReducer } from './reducer';
+import FullPageForm from "@/components/full-page-forms/FullPageForm";
+import { PageSEO } from "@/components/SEO";
+import appsData from "@/data/appsData";
+import siteMetadata from "@/data/siteMetadata";
+import { useCallback, useState } from "react";
+import { BasicPensionFrame } from "./components/BasicPensionFrame";
+import { CommutationsFrame } from "./components/CommutationsFrame";
+import { Result } from "./components/Result";
+import { RetirementYearFrame } from "./components/RetirementYearFrame";
+import { createResetAction, useDrReducer } from "./reducer";
 
 function DrCalculator() {
   const [showForm, setShowForm] = useState(false);
@@ -28,12 +28,12 @@ function DrCalculator() {
       <div className="">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-            Dearness Relief Calculator - Updated for Mar 2024
+            Dearness Relief Calculator - Updated for Aug 2024
           </h1>
           {!showResult && !showForm && (
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Calculate your deareness relief with effect from Mar 2024, your gross pension, net
-              pension and increase in DR per month
+              Calculate your deareness relief with effect from Aug 2024, your
+              gross pension, net pension and increase in DR per month
             </p>
           )}
         </div>
@@ -48,19 +48,27 @@ function DrCalculator() {
               }}
               className="text-black bg-white dark:bg-gray-900 dark:text-white text-4xl"
             >
-              <BasicPensionFrame value={formState.basicPension} dispatch={dispatch} />
+              <BasicPensionFrame
+                value={formState.basicPension}
+                dispatch={dispatch}
+              />
               <RetirementYearFrame
                 value={formState.retirementYearIndex}
                 options={formState.yearOptions}
                 dispatch={dispatch}
               />
-              <CommutationsFrame value={formState.commutation} dispatch={dispatch} />
+              <CommutationsFrame
+                value={formState.commutation}
+                dispatch={dispatch}
+              />
             </FullPageForm>
           )}
           {showResult && formState.drCalculated && (
             <Result
               basicPension={parseFloat(formState.basicPension.value)}
-              retirementYear={formState.yearOptions[formState.retirementYearIndex - 1]}
+              retirementYear={
+                formState.yearOptions[formState.retirementYearIndex - 1]
+              }
               commutation={parseFloat(formState.commutation.value)}
               currentDr={formState.dearnessRelief}
               grossPension={formState.grossPension}
@@ -71,8 +79,12 @@ function DrCalculator() {
           )}
           {!showForm && (
             <div className="w-full flex justify-center pt-4">
-              <button type="button" className="primary-button" onClick={() => setShowForm(true)}>
-                {showResult ? 'Re-Calculate' : 'Calculate'}
+              <button
+                type="button"
+                className="primary-button"
+                onClick={() => setShowForm(true)}
+              >
+                {showResult ? "Re-Calculate" : "Calculate"}
               </button>
             </div>
           )}
