@@ -1,10 +1,11 @@
-import Link from '@/components/Link';
-import { ItCalculator } from 'modules/it-regime';
+import Link from "@/components/Link";
+import { ItCalculator } from "modules/it-regime";
 
 const yearMapping = {
-  '2021-2022': '2021_2022',
-  '2022-2023': '2022_2023',
-  '2023-2024': '2023_2024',
+  "2021-2022": "2021_2022",
+  "2022-2023": "2022_2023",
+  "2023-2024": "2023_2024",
+  "2024-2025": "2024_2025",
 } as const;
 
 const ItRegimeFooter = ({ fy }: { fy: string }) => {
@@ -28,9 +29,9 @@ const ItRegimeFooter = ({ fy }: { fy: string }) => {
 
 const ItRegimePage = ({ fy }: { fy: string }) => {
   switch (fy) {
-    case '2023-2024':
-    case '2021-2022':
-    case '2022-2023':
+    case "2023-2024":
+    case "2021-2022":
+    case "2022-2023":
       return (
         <>
           <ItCalculator year={yearMapping[fy]} fy={fy} />

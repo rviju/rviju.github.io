@@ -24,27 +24,27 @@ export type ItRegimeFormState = {
   deductions: Field<string>;
   ageIndex: number;
   taxComputations: TaxSection;
-  ageOptions: ['Below 60 years', '60 to 80 years', 'Above 80 years'];
+  ageOptions: ["Below 60 years", "60 to 80 years", "Above 80 years"];
   year: yearType;
 };
 
 export type IncomeChangedAction = {
-  type: 'income_changed';
+  type: "income_changed";
   payload: string;
 };
 
 export type DeductionsChangedAction = {
-  type: 'deductions_changed';
+  type: "deductions_changed";
   payload: string;
 };
 
 export type AgeChangedAction = {
-  type: 'age_changed';
+  type: "age_changed";
   payload: { ageIndex: number };
 };
 
 export type ResetAction = {
-  type: 'reset';
+  type: "reset";
 };
 
 export type ItRegimeActionPayLoad =
@@ -53,4 +53,4 @@ export type ItRegimeActionPayLoad =
   | AgeChangedAction
   | ResetAction;
 
-export type yearType = '2021_2022' | '2022_2023' | '2023_2024';
+export type yearType = "2021_2022" | "2022_2023" | "2023_2024" | "2024_2025";
