@@ -94,13 +94,13 @@ function calculateTaxUnderNewRegime(income: number) {
   } else if (incomeToBeTaxed < 727778) {
     tax = incomeToBeTaxed - 700000;
   } else if (incomeToBeTaxed > 1500000) {
-    tax = 150000 + (incomeToBeTaxed - 1500000) * thirtyPercent;
+    tax = 140000 + (incomeToBeTaxed - 1500000) * thirtyPercent;
   } else if (incomeToBeTaxed > 1200000) {
-    tax = 90000 + (incomeToBeTaxed - 1200000) * twentyPercent;
+    tax = 80000 + (incomeToBeTaxed - 1200000) * twentyPercent;
   } else if (incomeToBeTaxed > 1000000) {
-    tax = 45000 + (incomeToBeTaxed - 1000000) * fifteenPercent;
+    tax = 50000 + (incomeToBeTaxed - 1000000) * fifteenPercent;
   } else if (incomeToBeTaxed > 700000) {
-    tax = 15000 + (incomeToBeTaxed - 700000) * tenPercent;
+    tax = 20000 + (incomeToBeTaxed - 700000) * tenPercent;
   } else if (incomeToBeTaxed > 300000) {
     tax = (incomeToBeTaxed - 300000) * fivePercent;
   } else {
