@@ -29,6 +29,7 @@ const ItRegimeFooter = ({ fy }: { fy: string }) => {
 
 const ItRegimePage = ({ fy }: { fy: string }) => {
   switch (fy) {
+    case "2024-2025":
     case "2023-2024":
     case "2021-2022":
     case "2022-2023":

@@ -1,7 +1,7 @@
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
 
 // You might need to insert additional domains in script-src if you are using external services
@@ -19,38 +19,38 @@ const ContentSecurityPolicy = `
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
-    key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\n/g, ''),
+    key: "Content-Security-Policy",
+    value: ContentSecurityPolicy.replace(/\n/g, ""),
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
-    key: 'Referrer-Policy',
-    value: 'strict-origin-when-cross-origin',
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
-    key: 'X-Frame-Options',
-    value: 'DENY',
+    key: "X-Frame-Options",
+    value: "DENY",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
-    key: 'X-Content-Type-Options',
-    value: 'nosniff',
+    key: "X-Content-Type-Options",
+    value: "nosniff",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
   {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on',
+    key: "X-DNS-Prefetch-Control",
+    value: "on",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
   {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=31536000; includeSubDomains; preload',
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
   {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=()',
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=()",
   },
 ];
 
@@ -60,16 +60,16 @@ const securityHeaders = [
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    loader: 'custom',
+    loader: "custom",
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts', 'modules'],
+    dirs: ["pages", "components", "lib", "layouts", "scripts", "modules"],
   },
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: securityHeaders,
       },
     ];
@@ -79,10 +79,10 @@ module.exports = withBundleAnalyzer({
       test: /\.(png|jpe?g|gif|mp4)$/i,
       use: [
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
-            publicPath: '/_next',
-            name: 'static/media/[name].[hash].[ext]',
+            publicPath: "/_next",
+            name: "static/media/[name].[hash].[ext]",
           },
         },
       ],
@@ -90,18 +90,18 @@ module.exports = withBundleAnalyzer({
 
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
 
-    config.plugins.push(new FaviconsWebpackPlugin('./data/logo.svg'));
+    config.plugins.push(new FaviconsWebpackPlugin("./data/logo.svg"));
 
     if (!dev && !isServer) {
       // Replace React with Preact only in client production build
       Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
+        "react/jsx-runtime.js": "preact/compat/jsx-runtime",
+        react: "preact/compat",
+        "react-dom/test-utils": "preact/test-utils",
+        "react-dom": "preact/compat",
       });
     }
 
@@ -110,8 +110,8 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [
       {
-        source: '/apps/it-regime',
-        destination: '/apps/it-regime/2023-2024',
+        source: "/apps/it-regime",
+        destination: "/apps/it-regime/2024-2025",
         permanent: false,
       },
     ];
