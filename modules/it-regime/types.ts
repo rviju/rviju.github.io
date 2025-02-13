@@ -53,4 +53,4 @@ export type ItRegimeActionPayLoad =
   | AgeChangedAction
   | ResetAction;
 
-export type yearType = "2021_2022" | "2022_2023" | "2023_2024" | "2024_2025";
+export type yearType = "2021_2022" | "2022_2023" | "2023_2024" | "2024_2025" | "2025_2026";

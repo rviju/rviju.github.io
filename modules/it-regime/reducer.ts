@@ -25,6 +25,10 @@ const yearMapping = {
   },
   "2024_2025": {
     oldRegime: calculateTaxUnderOldRegime,
+    newRegime: calculateTaxUnderNewRegimeFY2024to2025,
+  },
+  "2025_2026": {
+    oldRegime: calculateTaxUnderOldRegime,
     newRegime: calculateTaxUnderNewRegime,
   },
 } as const;
@@ -86,6 +90,38 @@ function calculateTaxUnderOldRegime(
 }
 
 function calculateTaxUnderNewRegime(income: number) {
+  const incomeToBeTaxed = income - 75000;
+
+  let tax = 0;
+  if (incomeToBeTaxed < 1200000) {
+    tax = 0; //Rebate under 87a
+  } else if (incomeToBeTaxed < 1270588) {
+    tax = incomeToBeTaxed - 1200000;
+  } else if (incomeToBeTaxed > 2400000) {
+    tax = 300000 + (incomeToBeTaxed - 2400000) * thirtyPercent;
+  } else if (incomeToBeTaxed > 2000000) {
+    tax = 200000 + (incomeToBeTaxed - 2000000) * twentyFivePercent;
+  } else if (incomeToBeTaxed > 1600000) {
+    tax = 120000 + (incomeToBeTaxed - 1600000) * twentyPercent;
+  } else if (incomeToBeTaxed > 120000) {
+    tax = 20000 + (incomeToBeTaxed - 120000) * tenPercent;
+  } else {
+    tax = 0;
+  }
+  //surcharge
+  if (incomeToBeTaxed > 20000000) {
+    tax = tax + tax * twentyFivePercent;
+  } else if (incomeToBeTaxed > 10000000) {
+    tax = tax + tax * fifteenPercent;
+  } else if (incomeToBeTaxed > 5000000) {
+    tax = tax + tax * tenPercent;
+  }
+
+  const taxWithCess = tax + tax * fourPercent;
+  return taxWithCess;
+}
+
+function calculateTaxUnderNewRegimeFY2024to2025(income: number) {
   const incomeToBeTaxed = income - 75000;
 
   let tax = 0;

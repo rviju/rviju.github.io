@@ -6,6 +6,7 @@ const yearMapping = {
   "2022-2023": "2022_2023",
   "2023-2024": "2023_2024",
   "2024-2025": "2024_2025",
+  "2025-2026": "2025_2026",
 } as const;
 
 const ItRegimeFooter = ({ fy }: { fy: string }) => {
@@ -29,6 +30,7 @@ const ItRegimeFooter = ({ fy }: { fy: string }) => {
 
 const ItRegimePage = ({ fy }: { fy: string }) => {
   switch (fy) {
+    case "2025-2026":
     case "2024-2025":
     case "2023-2024":
     case "2021-2022":
