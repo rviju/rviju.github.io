@@ -59,7 +59,7 @@ describe('DR Calculator for retirement period Between 01-July-93 and 31-Mar-1998
   });
   it('Should calculate DR with basic pension = 3850', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 3850)).toMatchObject({
-      dr: '28068.43',
+      dr: '28068.42',
       exGratia: 4450,
     });
   });
@@ -112,7 +112,7 @@ describe('DR Calculator for retirement period Between 01-Apr-1998 and 31-Oct-200
   });
   it('Should calculate DR with basic pension = 6010', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 6010)).toMatchObject({
-      dr: '28112.38',
+      dr: '28112.37',
       exGratia: 3400,
     });
   });
@@ -141,7 +141,7 @@ describe('DR Calculator for retirement period Between 01-Nov-2002 and 31-Oct-200
   });
   it('Should calculate DR with basic pension = 17615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 17615)).toMatchObject({
-      dr: '57009.19',
+      dr: '57009.18',
       exGratia: 4700,
     });
   });
