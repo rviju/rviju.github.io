@@ -103,8 +103,8 @@ function calculateTaxUnderNewRegime(income: number) {
     tax = 200000 + (incomeToBeTaxed - 2000000) * twentyFivePercent;
   } else if (incomeToBeTaxed > 1600000) {
     tax = 120000 + (incomeToBeTaxed - 1600000) * twentyPercent;
-  } else if (incomeToBeTaxed > 120000) {
-    tax = 20000 + (incomeToBeTaxed - 120000) * tenPercent;
+  } else if (incomeToBeTaxed > 1200000) {
+    tax = 60000 + (incomeToBeTaxed - 1200000) * fifteenPercent;
   } else {
     tax = 0;
   }
