@@ -26,11 +26,11 @@ class DrTableRow implements DrTableRowType {
 }
 
 export const AverageIndex = {
-  current: 9481.0,
+  current: 9731.0,
   onOct2022: 8456.0,
 };
 
-const truthTable2023: Array<DrTableRow> = [
+const currentTruthTable: Array<DrTableRow> = [
   new DrTableRow(1, 1250, 600, 0.67, 800),
   new DrTableRow(1, 2000, 600, 0.67, 450),
   new DrTableRow(1, 2130, 600, 0.67, 0),
@@ -136,7 +136,7 @@ function calculateDrOct2022Impl(
 
 function calculateCurrentDr(dateIndex: number, basicPension: number) {
   const avgIndex = AverageIndex.current;
-  const filteredRecords = truthTable2023.filter((val) => val.dateIndex === dateIndex);
+  const filteredRecords = currentTruthTable.filter((val) => val.dateIndex === dateIndex);
   return calculateDrImpl(filteredRecords, basicPension, avgIndex);
 }
 
@@ -147,17 +147,25 @@ function calculateOct2022Dr(dateIndex: number, basicPension: number) {
 }
 
 export function calculateDr(dateIndex: number, basicPension: number) {
-  const currentDr = calculateCurrentDr(dateIndex, basicPension);
-  const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension);
-  const exGratiaFactorMar2024BasedOnDateIndex = exGratiaFactorMar2024[dateIndex - 1];
-  const exGratiaIncreasePerMonth =
-    Math.round(
-      Big(basicPension).plus(oct2022Dr.dr).mul(exGratiaFactorMar2024BasedOnDateIndex).toNumber() /
-        100
-    ) * 100;
-  return {
-    dr: currentDr.dr.toFixed(2, Big.roundDown),
-    exGratia: currentDr.exGratia + exGratiaIncreasePerMonth,
-    additionalExgratia: exGratiaIncreasePerMonth,
-  };
+  if (dateIndex <= 7) {
+    const currentDr = calculateCurrentDr(dateIndex, basicPension);
+    const oct2022Dr = calculateOct2022Dr(dateIndex, basicPension);
+    const exGratiaFactorMar2024BasedOnDateIndex = exGratiaFactorMar2024[dateIndex - 1];
+    const exGratiaIncreasePerMonth =
+      Math.round(
+        Big(basicPension).plus(oct2022Dr.dr).mul(exGratiaFactorMar2024BasedOnDateIndex).toNumber() /
+          100
+      ) * 100;
+    return {
+      dr: currentDr.dr.toFixed(2, Big.roundDown),
+      exGratia: currentDr.exGratia + exGratiaIncreasePerMonth,
+      additionalExgratia: exGratiaIncreasePerMonth,
+    };
+  } else {
+    return {
+      dr: Big(basicPension).mul(0.25).toFixed(2, Big.roundDown),
+      exGratia: 0,
+      additionalExgratia: 0,
+    };
+  }
 }

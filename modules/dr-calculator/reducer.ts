@@ -60,7 +60,8 @@ const clericalYearOption = [
   'Between 01-Nov-2002 and 31-Oct-2007',
   'Between 01-Nov-2007 and 31-Oct-2012',
   'Between 01-Nov-2012 and 31-Oct-2017',
-  'On or After 01-Nov-2017',
+  'Between 01-Nov-2017 and 31-Oct-2022',
+  'On or After 01-Nov-2022',
 ];
 
 const initial_state: DrCalculatorFormState = {
