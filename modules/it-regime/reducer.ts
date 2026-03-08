@@ -49,7 +49,7 @@ const fourPercent = 0.04;
 function calculateTaxUnderOldRegimeFY2021to2023(
   annualIncome: number,
   deduction: number,
-  age: number
+  age: number,
 ) {
   const incomeToBeTaxed = annualIncome - deduction;
 
@@ -71,6 +71,17 @@ function calculateTaxUnderOldRegimeFY2021to2023(
   } else if (age === 3) {
     taxAfterAgeConsideration = Math.max(0, tax - 12500);
   }
+  //surcharge
+  if (incomeToBeTaxed > 20000000) {
+    taxAfterAgeConsideration =
+      taxAfterAgeConsideration + taxAfterAgeConsideration * twentyFivePercent;
+  } else if (incomeToBeTaxed > 10000000) {
+    taxAfterAgeConsideration =
+      taxAfterAgeConsideration + taxAfterAgeConsideration * fifteenPercent;
+  } else if (incomeToBeTaxed > 5000000) {
+    taxAfterAgeConsideration =
+      taxAfterAgeConsideration + taxAfterAgeConsideration * tenPercent;
+  }
 
   const taxWithCess =
     taxAfterAgeConsideration + taxAfterAgeConsideration * fourPercent;
@@ -80,12 +91,12 @@ function calculateTaxUnderOldRegimeFY2021to2023(
 function calculateTaxUnderOldRegime(
   annualIncome: number,
   deduction: number,
-  age: number
+  age: number,
 ) {
   return calculateTaxUnderOldRegimeFY2021to2023(
     annualIncome,
     deduction + 50000,
-    age
+    age,
   );
 }
 
@@ -237,7 +248,7 @@ function computeTax(state: ItRegimeFormState): ItRegimeFormState {
         taxUnderOldRegime: calculateTaxUnderOldRegime(
           income,
           deductions,
-          state.ageIndex
+          state.ageIndex,
         ),
         taxUnderNewRegime: calculateTaxUnderNewRegime(income),
         taxComputed: true,
@@ -270,13 +281,13 @@ function numberChanged(payload: string, fieldName: "Income" | "Deductions") {
 }
 
 function incomeChanged(
-  action: IncomeChangedAction
+  action: IncomeChangedAction,
 ): Partial<ItRegimeFormState> {
   return { income: numberChanged(action.payload, "Income") };
 }
 
 function deductionsChanged(
-  action: DeductionsChangedAction
+  action: DeductionsChangedAction,
 ): Partial<ItRegimeFormState> {
   return { deductions: numberChanged(action.payload, "Deductions") };
 }
@@ -294,7 +305,7 @@ const initialize = (year: yearType): ItRegimeFormState => ({
 
 function ItRegimeFormReducer(
   state: ItRegimeFormState,
-  action: ItRegimeActionPayLoad
+  action: ItRegimeActionPayLoad,
 ): ItRegimeFormState {
   let returnState: ItRegimeFormState;
   switch (action.type) {
@@ -322,7 +333,7 @@ export function createIncomeChangedAction(value: string): IncomeChangedAction {
 }
 
 export function createDeductionsChangedAction(
-  value: string
+  value: string,
 ): DeductionsChangedAction {
   return { type: "deductions_changed", payload: value };
 }
