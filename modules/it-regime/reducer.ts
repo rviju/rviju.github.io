@@ -31,6 +31,10 @@ const yearMapping = {
     oldRegime: calculateTaxUnderOldRegime,
     newRegime: calculateTaxUnderNewRegime,
   },
+  "2026_2027": {
+    oldRegime: calculateTaxUnderOldRegime,
+    newRegime: calculateTaxUnderNewRegime,
+  }
 } as const;
 
 const ValidationSuccess: FieldValidation = {
