@@ -26,7 +26,7 @@ class DrTableRow implements DrTableRowType {
 }
 
 export const AverageIndex = {
-  current: 9731.0,
+  current: 9917.0,
   onOct2022: 8456.0,
 };
 
@@ -163,7 +163,7 @@ export function calculateDr(dateIndex: number, basicPension: number) {
     };
   } else {
     return {
-      dr: Big(basicPension).mul(0.25).toFixed(2, Big.roundDown),
+      dr: Big(basicPension).mul(0.2783).toFixed(2, Big.roundDown),
       exGratia: 0,
       additionalExgratia: 0,
     };

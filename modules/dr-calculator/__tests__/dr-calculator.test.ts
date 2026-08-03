@@ -6,37 +6,37 @@ describe('DR Calculator for retirement period before 01-Jul-1993', () => {
   const retirementPeriodIndex = 1;
   it('Should calculate DR with basic pension < 1250', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 1200)).toMatchObject({
-      dr: '18347.28',
+      dr: '18725.16',
       exGratia: 3700,
     });
   });
   it('Should calculate DR with basic pension = 1250', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 1250)).toMatchObject({
-      dr: '19111.75',
+      dr: '19505.38',
       exGratia: 3800,
     });
   });
   it('Should calculate DR with basic pension = 2000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 2000)).toMatchObject({
-      dr: '30578.80',
+      dr: '31208.60',
       exGratia: 4950,
     });
   });
   it('Should calculate DR with basic pension < 2130', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 2100)).toMatchObject({
-      dr: '32107.74',
+      dr: '32769.03',
       exGratia: 4600,
     });
   });
   it('Should calculate DR with basic pension = 2130', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 2130)).toMatchObject({
-      dr: '32566.42',
+      dr: '33237.16',
       exGratia: 4700,
     });
   });
   it('Should calculate DR with basic pension > 2130', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 4000)).toMatchObject({
-      dr: '61157.60',
+      dr: '62417.20',
       exGratia: 6100,
     });
   });
@@ -47,37 +47,37 @@ describe('DR Calculator for retirement period Between 01-July-93 and 31-Mar-1998
 
   it('Should calculate DR with basic pension < 2400', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 2300)).toMatchObject({
-      dr: '17267.25',
+      dr: '17645.60',
       exGratia: 3400,
     });
   });
   it('Should calculate DR with basic pension = 2400', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 2400)).toMatchObject({
-      dr: '18018.00',
+      dr: '18412.80',
       exGratia: 3500,
     });
   });
   it('Should calculate DR with basic pension = 3850', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 3850)).toMatchObject({
-      dr: '28903.87',
+      dr: '29537.20',
       exGratia: 4450,
     });
   });
   it('Should calculate DR with basic pension < 4100', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 4000)).toMatchObject({
-      dr: '30030.00',
+      dr: '30688.00',
       exGratia: 4100,
     });
   });
   it('Should calculate DR with basic pension = 4100', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 4100)).toMatchObject({
-      dr: '30780.75',
+      dr: '31455.20',
       exGratia: 4200,
     });
   });
   it('Should calculate DR with basic pension > 4100', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 5000)).toMatchObject({
-      dr: '37537.50',
+      dr: '38360.00',
       exGratia: 4500,
     });
   });
@@ -88,37 +88,37 @@ describe('DR Calculator for retirement period Between 01-Apr-1998 and 31-Oct-200
 
   it('Should calculate DR with basic pension < 3550', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 3500)).toMatchObject({
-      dr: '16892.40',
+      dr: '17287.20',
       exGratia: 2900,
     });
   });
   it('Should calculate DR with basic pension = 3550', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 3550)).toMatchObject({
-      dr: '17133.72',
+      dr: '17534.16',
       exGratia: 3000,
     });
   });
   it('Should calculate DR with basic pension < 5650', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 5000)).toMatchObject({
-      dr: '24132.00',
+      dr: '24696.00',
       exGratia: 3350,
     });
   });
   it('Should calculate DR with basic pension = 5650', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 5650)).toMatchObject({
-      dr: '27269.16',
+      dr: '27906.48',
       exGratia: 3750,
     });
   });
   it('Should calculate DR with basic pension = 6010', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 6010)).toMatchObject({
-      dr: '29006.66',
+      dr: '29684.59',
       exGratia: 3400,
     });
   });
   it('Should calculate DR with basic pension > 6010', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 7000)).toMatchObject({
-      dr: '33784.80',
+      dr: '34574.40',
       exGratia: 3600,
     });
   });
@@ -129,37 +129,37 @@ describe('DR Calculator for retirement period Between 01-Nov-2002 and 31-Oct-200
 
   it('Should calculate DR with basic pension = 7000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 7000)).toMatchObject({
-      dr: '23436.00',
+      dr: '24028.20',
       exGratia: 1900,
     });
   });
   it('Should calculate DR with basic pension = 10000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 10000)).toMatchObject({
-      dr: '33480.00',
+      dr: '34326.00',
       exGratia: 2600,
     });
   });
   it('Should calculate DR with basic pension = 17615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 17615)).toMatchObject({
-      dr: '58975.02',
+      dr: '60465.25',
       exGratia: 4700,
     });
   });
   it('Should calculate DR with basic pension = 18000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 18000)).toMatchObject({
-      dr: '60264.00',
+      dr: '61786.80',
       exGratia: 4800,
     });
   });
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toMatchObject({
-      dr: '66960.00',
+      dr: '68652.00',
       exGratia: 5300,
     });
   });
   it('Should calculate DR with basic pension > 22000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 22000)).toMatchObject({
-      dr: '73656.00',
+      dr: '75517.20',
       exGratia: 5800,
     });
   });
@@ -170,37 +170,37 @@ describe('DR Calculator for retirement period Between 01-Nov-2007 and 31-Oct-201
 
   it('Should calculate DR with basic pension = 10000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 10000)).toMatchObject({
-      dr: '25845.00',
+      dr: '26550.00',
       exGratia: 1600,
     });
   });
   it('Should calculate DR with basic pension = 12000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 12000)).toMatchObject({
-      dr: '31014.00',
+      dr: '31860.00',
       exGratia: 1900,
     });
   });
   it('Should calculate DR with basic pension = 17615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 17615)).toMatchObject({
-      dr: '45525.96',
+      dr: '46767.83',
       exGratia: 2700,
     });
   });
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toMatchObject({
-      dr: '51690.00',
+      dr: '53100.00',
       exGratia: 3100,
     });
   });
   it('Should calculate DR with basic pension = 22000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 22000)).toMatchObject({
-      dr: '56859.00',
+      dr: '58410.00',
       exGratia: 3400,
     });
   });
   it('Should calculate DR with basic pension > 25000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 25000)).toMatchObject({
-      dr: '64612.50',
+      dr: '66375.00',
       exGratia: 3900,
     });
   });
@@ -211,37 +211,37 @@ describe('DR Calculator for retirement period Between 01-Nov-2012 and 31-Oct-201
 
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toMatchObject({
-      dr: '26440.00',
+      dr: '27380.00',
       exGratia: 1200,
     });
   });
   it('Should calculate DR with basic pension = 25000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 25000)).toMatchObject({
-      dr: '33050.00',
+      dr: '34225.00',
       exGratia: 1500,
     });
   });
   it('Should calculate DR with basic pension = 27615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 27615)).toMatchObject({
-      dr: '36507.03',
+      dr: '37804.94',
       exGratia: 1700,
     });
   });
   it('Should calculate DR with basic pension = 35000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 35000)).toMatchObject({
-      dr: '46270.00',
+      dr: '47915.00',
       exGratia: 2100,
     });
   });
   it('Should calculate DR with basic pension = 40000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 40000)).toMatchObject({
-      dr: '52880.00',
+      dr: '54760.00',
       exGratia: 2400,
     });
   });
   it('Should calculate DR with basic pension > 45000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 45000)).toMatchObject({
-      dr: '59490.00',
+      dr: '61605.00',
       exGratia: 2700,
     });
   });
@@ -252,37 +252,37 @@ describe('DR Calculator for retirement period Between 01-Nov-2017 and 31-Oct-202
 
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toMatchObject({
-      dr: '11816.00',
+      dr: '12474.00',
       exGratia: 500,
     });
   });
   it('Should calculate DR with basic pension = 25000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 25000)).toMatchObject({
-      dr: '14770.00',
+      dr: '15592.50',
       exGratia: 700,
     });
   });
   it('Should calculate DR with basic pension = 27615', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 27615)).toMatchObject({
-      dr: '16314.94',
+      dr: '17223.48',
       exGratia: 800,
     });
   });
   it('Should calculate DR with basic pension = 35000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 35000)).toMatchObject({
-      dr: '20678.00',
+      dr: '21829.50',
       exGratia: 1000,
     });
   });
   it('Should calculate DR with basic pension = 40000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 40000)).toMatchObject({
-      dr: '23632.00',
+      dr: '24948.00',
       exGratia: 1100,
     });
   });
   it('Should calculate DR with basic pension > 45000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 45000)).toMatchObject({
-      dr: '26586.00',
+      dr: '28066.50',
       exGratia: 1200,
     });
   });
@@ -293,13 +293,13 @@ describe('DR Calculator for retirement period On or After 01-Nov-2022', () => {
 
   it('Should calculate DR with basic pension = 20000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 20000)).toMatchObject({
-      dr: '5000.00',
+      dr: '5566.00',
       exGratia: 0,
     });
   });
   it('Should calculate DR with basic pension = 30000', () => {
     expect(calcualteDrForQ12022(retirementPeriodIndex, 30000)).toMatchObject({
-      dr: '7500.00',
+      dr: '8349.00',
       exGratia: 0,
     });
   });
